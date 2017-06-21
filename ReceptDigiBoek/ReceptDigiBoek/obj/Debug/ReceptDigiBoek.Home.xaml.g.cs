@@ -11,7 +11,7 @@
 namespace ReceptDigiBoek {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/osman/Desktop/ReceptDigiBoek/ReceptDigiBoek/Home.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/osman/Desktop/WorkSpace/Github/project-4-app/ReceptDigiBoek/ReceptDigiBoek/Home.xaml")]
     public partial class Home : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
