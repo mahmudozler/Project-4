@@ -1,8 +1,3 @@
-c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.csprojResolveAssemblyReference.cache
-c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainPage.xaml.g.cs
-c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.App.xaml.g.cs
-c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainRecipePage.xaml.g.cs
-c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.AccountPage.xaml.g.cs
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.dll
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.pdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.apk
@@ -26,6 +21,9 @@ c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeA
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Platform.Android.pdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.pdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.xml
+c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.csprojResolveAssemblyReference.cache
+c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainPage.xaml.g.cs
+c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.App.xaml.g.cs
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.dll
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.pdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\bin\RecipeApp.Android.apk
@@ -45,3 +43,52 @@ c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeA
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainRecipePage.xaml.g.cs
+c:\users\eh156\documents\visual studio 2017\Projects\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.AccountPage.xaml.g.cs
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.apk
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android-Signed.apk
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\FormsViewGroup.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.v7.CardView.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.v7.MediaRouter.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\FormsViewGroup.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\FormsViewGroup.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Core.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Platform.Android.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.csprojResolveAssemblyReference.cache
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainPage.xaml.g.cs
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.App.xaml.g.cs
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.MainRecipePage.xaml.g.cs
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Droid.AccountPage.xaml.g.cs
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.dll
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.pdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\bin\RecipeApp.Android.apk
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\res\drawable\icon.png
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\res\layout\tabbar.xml
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\res\layout\toolbar.xml
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\res\values\styles.xml
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\R.cs.flag
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\uploadflags.txt
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\RecipeApp.Android.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\eh156\Desktop\Project 4\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb

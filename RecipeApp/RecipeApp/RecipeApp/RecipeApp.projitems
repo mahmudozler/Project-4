@@ -3,7 +3,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>ebad0dbd-efcd-48f9-989f-de15dc85a24f</SharedGUID>
+    <SharedGUID>78e771e8-dfab-4136-9c04-53220961534d</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>RecipeApp</Import_RootNamespace>

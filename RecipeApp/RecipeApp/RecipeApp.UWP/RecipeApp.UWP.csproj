@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{E3DBBB50-DE75-4D98-9BCA-A561AAEAD510}</ProjectGuid>
+    <ProjectGuid>{F3755E48-16F5-48C9-BFAC-2A3E78AC674D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RecipeApp.UWP</RootNamespace>

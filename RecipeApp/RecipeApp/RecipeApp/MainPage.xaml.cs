@@ -7,8 +7,8 @@ using Xamarin.Forms;
 
 namespace RecipeApp
 {
-    public partial class MainPage : ContentPage
-    {
+	public partial class MainPage : ContentPage
+	{
         public MainPage()
         {
             InitializeComponent();

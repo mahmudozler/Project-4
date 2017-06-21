@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RecipeApp.MainRecipePage"
-             Title="Main Recipe">
+             x:Class="RecipeApp.MainRecipePage">
     
     <ContentPage.Content>
+        
         <ScrollView>
+            
             <StackLayout BackgroundColor="White" Padding="20, 10">
 
                 <Label Text="MAIN RECIPE" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
@@ -25,7 +26,9 @@
                 <Label Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim." TextColor="Black"/>
 
             </StackLayout>
+            
         </ScrollView>
+        
     </ContentPage.Content>
     
 </ContentPage>
