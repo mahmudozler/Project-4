@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.AccountPage"
+             Title="Account">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Padding="20, 10">
+
+                <Label Text="ACCOUNT" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
+
+                <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
