@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ReceptDigiBoek/App.xaml.cs">
     <Files>
       <File FileName="ReceptDigiBoek/Utils.cs" Line="6" Column="28" />
-      <File FileName="ReceptDigiBoek/Home.xaml" Line="6" Column="1" />
+      <File FileName="ReceptDigiBoek/Home.xaml" Line="7" Column="1" />
       <File FileName="ReceptDigiBoek/Home.xaml.cs" Line="1" Column="1" />
-      <File FileName="ReceptDigiBoek/App.xaml.cs" Line="11" Column="48" />
+      <File FileName="ReceptDigiBoek/App.xaml.cs" Line="11" Column="24" />
       <File FileName="ReceptDigiBoek/App.xaml" Line="7" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
