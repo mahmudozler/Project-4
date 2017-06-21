@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{B6D94822-061E-41C8-9219-8E9FD40D814E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/MainPage.xaml">
+    <Files>
+      <File FileName="RecipeApp/RecipeApp/App.xaml" Line="10" Column="15" />
+      <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="58" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.Nexus_7" />
+  <MultiItemStartupConfigurations />
+</Properties>
