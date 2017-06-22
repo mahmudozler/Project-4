@@ -4,7 +4,7 @@
       <File FileName="RecipeApp/RecipeApp/App.xaml" Line="10" Column="15" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="70" Column="15" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="RecipeApp/RecipeApp/Utils.cs" Line="23" Column="9" />
+      <File FileName="RecipeApp/RecipeApp/Utils.cs" Line="109" Column="38" />
       <File FileName="RecipeApp/RecipeApp/App.xaml.cs" Line="16" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
