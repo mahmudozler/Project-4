@@ -34,6 +34,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BrowsePage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BrowsePage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainRecipePage.xaml">
