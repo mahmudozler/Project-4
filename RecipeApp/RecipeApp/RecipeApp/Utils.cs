@@ -9,15 +9,14 @@ namespace RecipeApp
         {
             switch(option)
             {
-                default:
-                    return new MainPage();
                 case 1:
                     return new MainPage();
 				case 2:
                     throw new NotImplementedException();
 				case 3:
                     throw new NotImplementedException();
-
+                default:
+                    return new MainPage();
 			}
         }
     }
