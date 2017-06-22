@@ -26,6 +26,8 @@ namespace RecipeApp
 			void Visit(Action<T> OnSome, Action OnNone);
 		}
 
+
+
 		public interface Iterator<T>
 		{
 			Option<T> GetNext();
@@ -102,6 +104,7 @@ namespace RecipeApp
             public string Name { get; set; }
             public string Description { get; set; }
             public List<string> Ingredients { get; set; }
+            public string ImageURL { get; set; }
 
             public Recipe(int index)
             {
