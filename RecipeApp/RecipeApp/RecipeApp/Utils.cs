@@ -31,7 +31,6 @@ namespace RecipeApp
 			Option<T> GetNext();
 			void Reset();
 			Option<T> GetCurrent();
-            void Add(T item);
 		}
 
 		public class Some<T> : Option<T>
@@ -97,5 +96,27 @@ namespace RecipeApp
 				this.Current = -1;
 			}
 		}
+
+        public class Recipe
+        {
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public List<string> Ingredients { get; set; }
+
+            public Recipe(int index)
+            {
+                
+            }
+
+            public Option<Recipe> Filter(string str)
+            {
+                if (Ingredients.Elements.Contains(str))
+                {
+                    return new Some<Recipe>(this);
+                }
+                else return new None<Recipe>();
+            }
+        }
+
     }
 }
