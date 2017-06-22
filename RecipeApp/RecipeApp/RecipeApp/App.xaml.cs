@@ -13,7 +13,7 @@ namespace RecipeApp
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new RecipeApp.MainPage());
+            MainPage = new NavigationPage(CreateWindow.Create(1));
 		}
 
 		protected override void OnStart ()
