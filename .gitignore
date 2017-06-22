@@ -7,6 +7,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+RecipeApp.Android.csproj.FileListAbsolute.txt
+*.userprefs
+
+
 # User-specific files
 *.suo
 *.user
@@ -15,6 +19,7 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+*.cache
 
 # Build results
 [Dd]ebug/
