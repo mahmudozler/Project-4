@@ -8,11 +8,17 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
                 
                 <Entry Grid.Column="0" TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
-                <Button Grid.Column="1" Text="Category" Margin="15" BackgroundColor="#565251" HeightRequest="35"></Button>
+                <Picker Grid.Column="1" Title="Category" Margin="10" HeightRequest="40" SelectedItem="CategoryIndex">
+                    <Picker.Items>
+                        <x:String>Vis</x:String> 
+                        <x:String>Drank</x:String>
+                        <x:String>Vegetarisch</x:String>
+                    </Picker.Items>
+                </Picker>
             </Grid>
                 <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
         </StackLayout>
