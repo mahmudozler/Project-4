@@ -2,10 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RecipeApp.BrowsePage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Padding="20, 10">
-            <Label Text="Search for recipe" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
-            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
-            <Entry TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
-            <Button Text="Search" Margin="15" BackgroundColor="#565251" HeightRequest="35"/>
+
+                <Label Text="Search for recipe" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                
+                <Entry Grid.Column="0" TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
+                <Button Grid.Column="1" Text="Category" Margin="15" BackgroundColor="#565251" HeightRequest="35"></Button>
+            </Grid>
+                <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -10,7 +10,7 @@ namespace RecipeApp
             switch (option)
             {
                 case 1:
-                    return new MainPage();
+                    return new BrowsePage();
                 case 2:
                     throw new NotImplementedException();
                 case 3:
