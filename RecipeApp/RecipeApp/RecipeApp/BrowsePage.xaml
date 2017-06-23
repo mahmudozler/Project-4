@@ -12,8 +12,9 @@
                 </Grid.ColumnDefinitions>
                 
                 <Entry Grid.Column="0" TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
-                <Picker Grid.Column="1" Title="Category" Margin="10" HeightRequest="40" SelectedItem="CategoryIndex">
+                <Picker x:Name="CategoryPicker" Grid.Column="1" Title="Category" Margin="10" HeightRequest="40">
                     <Picker.Items>
+                        <x:String>All</x:String>
                         <x:String>Vis</x:String> 
                         <x:String>Drank</x:String>
                         <x:String>Vegetarisch</x:String>

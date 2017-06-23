@@ -10,6 +10,7 @@ namespace RecipeApp
         public BrowsePage()
         {
             InitializeComponent();
+            this.CategoryPicker.SelectedIndex = 0;
         }
     }
 }
