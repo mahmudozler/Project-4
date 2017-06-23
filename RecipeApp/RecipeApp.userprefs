@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{85455386-00E5-4A0F-B442-63118CCC4DC2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/BrowsePage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/MainPage.xaml">
     <Files>
       <File FileName="RecipeApp/RecipeApp/App.xaml" Line="10" Column="15" />
       <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="11" Column="15" />
       <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="11" Column="10" />
+      <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="18" Column="45" />
+      <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="28" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
