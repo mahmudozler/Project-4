@@ -10,7 +10,7 @@ namespace RecipeApp
             switch (option)
             {
                 case 1:
-                    return new MainPage();
+                    return new BrowsePage();
                 case 2:
                     throw new NotImplementedException();
                 case 3:
@@ -112,7 +112,7 @@ namespace RecipeApp
             
         }
 
-        public Option<Recipe> Filter(string str)
+        public Option<Recipe> Search(string str)
         {
             if (Ingredients.Elements.Contains(str))
             {
