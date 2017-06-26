@@ -15,9 +15,14 @@
                 <Picker x:Name="CategoryPicker" Grid.Column="1" Title="Category" Margin="10" HeightRequest="40">
                     <Picker.Items>
                         <x:String>All</x:String>
-                        <x:String>Vis</x:String>
-                        <x:String>Drank</x:String>
-                        <x:String>Vegetarisch</x:String>
+                        <x:String>Main dish</x:String>
+                        <x:String>Snacks</x:String>
+                        <x:String>Pizza</x:String>
+                        <x:String>Pasta</x:String>
+                        <x:String>Desert</x:String>
+                        <x:String>Drinks</x:String>
+                        <x:String>Appetizer</x:String>
+                        <x:String>Breakfast</x:String>
                     </Picker.Items>
                 </Picker>
             </Grid>

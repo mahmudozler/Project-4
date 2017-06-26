@@ -11,8 +11,8 @@
 namespace RecipeApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\eh156\\Desktop\\Project 4\\RecipeApp\\RecipeApp\\RecipeApp\\MainRecipePage.xam" +
-        "l")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\MuhammedInce\\Documents\\GitHub\\project-4-app\\RecipeApp\\RecipeApp\\RecipeAp" +
+        "p\\MainRecipePage.xaml")]
     public partial class MainRecipePage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
