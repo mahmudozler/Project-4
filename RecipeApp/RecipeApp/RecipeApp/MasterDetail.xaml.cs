@@ -16,26 +16,26 @@ namespace RecipeApp
         {
             InitializeComponent();
 
-            Detail = new NavigationPage(new MainPage());
+            Detail = new NavigationPage(CreateWindow.Create(1));
         }
 
         private void MenuItem1_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(new MainPage());
+            Detail = new NavigationPage(CreateWindow.Create(1));
 
             IsPresented = false;
         }
 
         private void MenuItem2_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(new BrowsePage());
+            Detail = new NavigationPage(CreateWindow.Create(2));
 
             IsPresented = false;
         }
 
         private void MenuItem3_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(new AccountPage());
+            Detail = new NavigationPage(CreateWindow.Create(3));
 
             IsPresented = false;
         }
