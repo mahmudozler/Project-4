@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,8 @@ namespace RecipeApp
         public MainRecipePage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
+
+            IngredientsLabel.Text = "1. water\n2. zout";
         }
     }
 }

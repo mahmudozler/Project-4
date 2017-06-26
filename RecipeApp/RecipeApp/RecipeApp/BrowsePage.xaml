@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RecipeApp.BrowsePage" Title="Browse">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Padding="20, 10">
+            <Label Text="SEARCH" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
+
+            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0" TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
+                <Picker x:Name="CategoryPicker" Grid.Column="1" Title="Category" Margin="10" HeightRequest="40">
+                    <Picker.Items>
+                        <x:String>All</x:String>
+                        <x:String>Vis</x:String>
+                        <x:String>Drank</x:String>
+                        <x:String>Vegetarisch</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

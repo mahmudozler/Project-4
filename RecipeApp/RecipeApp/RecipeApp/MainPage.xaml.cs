@@ -7,15 +7,14 @@ using Xamarin.Forms;
 
 namespace RecipeApp
 {
-	public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage
 	{
         public MainPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void MainRecipe_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainRecipePage());
         }
