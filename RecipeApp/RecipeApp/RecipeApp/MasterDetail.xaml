@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecipeApp.MasterDetail">
+    
+    <MasterDetailPage.Master>
+        <ContentPage Padding="5" BackgroundColor="White" Title="Master">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="RECIPE APP" TextColor="Red" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+                    <Button Text="Home" Clicked="MenuItem1_Clicked"/>
+                    <Button Text="Account" Clicked="MenuItem2_Clicked"/>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage>
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="Detail Page"/>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RecipeApp"
-             x:Class="RecipeApp.MainPage">
+             x:Class="RecipeApp.MainPage"
+             Title="Home">
 
     <ContentPage.Content>
-        
         <ScrollView>
-            
             <StackLayout BackgroundColor="White" Padding="20, 10">
-
-
                 <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
                 <BoxView BackgroundColor="LightPink" HeightRequest="150">
-                    
-                    
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Tapped="MainRecipe_Tapped" NumberOfTapsRequired="1"/>
                     </BoxView.GestureRecognizers>
-                    
                 </BoxView>
 
                 <Grid Margin="0, 10">
-
                     <Grid.ColumnDefinitions>
-                        
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="*"/>
-                        
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="0">
-                        
                         <Label Text="RECIPE01" TextColor="Red"/>
                         <BoxView BackgroundColor="LightPink" HeightRequest="100"/>
 
@@ -44,11 +34,9 @@
 
                         <Label Text="RECIPE07" TextColor="Red"/>
                         <BoxView BackgroundColor="LightPink" HeightRequest="100"/>
-                        
                     </StackLayout>
 
                     <StackLayout Grid.Column="2">
-                        
                         <Label Text="RECIPE02" TextColor="Red"/>
                         <BoxView BackgroundColor="LightPink" HeightRequest="100"/>
 
@@ -60,15 +48,9 @@
 
                         <Label Text="RECIPE08" TextColor="Red"/>
                         <BoxView BackgroundColor="LightPink" HeightRequest="100"/>
-                        
                     </StackLayout>
-
                 </Grid>
-                
             </StackLayout>
-            
         </ScrollView>
-        
     </ContentPage.Content>
-
 </ContentPage>

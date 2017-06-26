@@ -15,6 +15,6 @@ namespace RecipeApp
 		public AccountPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+        }
+    }
 }
