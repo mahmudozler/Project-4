@@ -9,8 +9,9 @@
                 <StackLayout>
                     <Label Text="RECIPE APP" TextColor="Red" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
-                    <Button Text="Home" Clicked="MenuItem1_Clicked"/>
-                    <Button Text="Account" Clicked="MenuItem2_Clicked"/>
+                    <Button Text="Home" BackgroundColor="Transparent" Clicked="MenuItem1_Clicked"/>
+                    <Button Text="Browse" BackgroundColor="Transparent" Clicked="MenuItem2_Clicked"/>
+                    <Button Text="Account" BackgroundColor="Transparent" Clicked="MenuItem3_Clicked"/>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

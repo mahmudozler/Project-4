@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RecipeApp.BrowsePage" Title="Browse">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Padding="20, 10">
+            <Label Text="SEARCH" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
 
-            <Label Text="Search for recipe" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
+            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

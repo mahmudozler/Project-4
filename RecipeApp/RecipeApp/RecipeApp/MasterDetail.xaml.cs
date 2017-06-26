@@ -28,6 +28,13 @@ namespace RecipeApp
 
         private void MenuItem2_Clicked(object sender, System.EventArgs e)
         {
+            Detail = new NavigationPage(new BrowsePage());
+
+            IsPresented = false;
+        }
+
+        private void MenuItem3_Clicked(object sender, System.EventArgs e)
+        {
             Detail = new NavigationPage(new AccountPage());
 
             IsPresented = false;
