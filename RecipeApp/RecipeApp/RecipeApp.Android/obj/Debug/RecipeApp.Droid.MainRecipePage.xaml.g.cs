@@ -11,13 +11,17 @@
 namespace RecipeApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\MuhammedInce\\Documents\\GitHub\\project-4-app\\RecipeApp\\RecipeApp\\RecipeAp" +
-        "p\\MainRecipePage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\eh156\\Desktop\\Project 4\\RecipeApp\\RecipeApp\\RecipeApp\\MainRecipePage.xam" +
+        "l")]
     public partial class MainRecipePage : global::Xamarin.Forms.ContentPage {
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label IngredientsLabel;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainRecipePage));
+            IngredientsLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "IngredientsLabel");
         }
     }
 }

@@ -8,16 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="White" Padding="20, 10">
-<<<<<<< HEAD
-
-                <Label Text="RECIPES" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
-                <SearchBar Placeholder="abc" Text="Search for" ></SearchBar>
-                <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
-                
-                    <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
-=======
                 <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
->>>>>>> 21414f56bc7b96733f0e190753b4e5c5bb7bd5c4
                 <BoxView BackgroundColor="LightPink" HeightRequest="150">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="MainRecipe_Tapped" NumberOfTapsRequired="1"/>

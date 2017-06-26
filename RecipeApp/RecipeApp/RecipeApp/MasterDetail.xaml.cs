@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 
 namespace RecipeApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MasterDetail : MasterDetailPage
-	{
-		public MasterDetail ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MasterDetail : MasterDetailPage
+    {
+        public MasterDetail()
+        {
+            InitializeComponent();
 
             Detail = new NavigationPage(new MainPage());
-		}
+        }
 
         private void MenuItem1_Clicked(object sender, System.EventArgs e)
         {

@@ -11,7 +11,7 @@ namespace RecipeApp
 	{
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();;
         }
 
         private async void MainRecipe_Tapped(object sender, EventArgs e)
