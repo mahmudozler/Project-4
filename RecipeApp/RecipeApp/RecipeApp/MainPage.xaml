@@ -11,10 +11,10 @@
             <StackLayout BackgroundColor="White" Padding="20, 10">
 
                 <Label Text="RECIPES" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
-
+                <SearchBar Placeholder="abc" Text="Search for" ></SearchBar>
                 <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
-
-                <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
+                
+                    <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
                 <BoxView BackgroundColor="LightPink" HeightRequest="150">
                     
                     <BoxView.GestureRecognizers>

@@ -11,7 +11,7 @@
 namespace RecipeApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("c:\\users\\eh156\\documents\\visual studio 2017\\Projects\\RecipeApp\\RecipeApp\\RecipeAp" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\MuhammedInce\\Documents\\GitHub\\project-4-app\\RecipeApp\\RecipeApp\\RecipeAp" +
         "p\\App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
