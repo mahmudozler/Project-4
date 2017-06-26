@@ -22246,10 +22246,10 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\eh156\\Desktop\\Project 4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\RecipeApp.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\eh156\\Desktop\\Project-4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\RecipeApp.UWP.csproj",
       "projectName": "RecipeApp.UWP",
-      "projectPath": "C:\\Users\\eh156\\Desktop\\Project 4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\RecipeApp.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\eh156\\Desktop\\Project 4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\project.json",
+      "projectPath": "C:\\Users\\eh156\\Desktop\\Project-4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\RecipeApp.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\eh156\\Desktop\\Project-4\\RecipeApp\\RecipeApp\\RecipeApp.UWP\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

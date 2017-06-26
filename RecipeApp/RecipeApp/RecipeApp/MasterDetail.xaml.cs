@@ -16,26 +16,38 @@ namespace RecipeApp
         {
             InitializeComponent();
 
-            Detail = new NavigationPage(CreateWindow.Create(1));
+            Detail = new NavigationPage(CreateWindow.Create(1))
+            {
+                BackgroundColor = Color.Red
+            };
         }
 
         private void MenuItem1_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(CreateWindow.Create(1));
+            Detail = new NavigationPage(CreateWindow.Create(1))
+            {
+                BackgroundColor = Color.Red
+            };
 
             IsPresented = false;
         }
 
         private void MenuItem2_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(CreateWindow.Create(2));
+            Detail = new NavigationPage(CreateWindow.Create(2))
+            {
+                BackgroundColor = Color.Red
+            };
 
             IsPresented = false;
         }
 
         private void MenuItem3_Clicked(object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(CreateWindow.Create(3));
+            Detail = new NavigationPage(CreateWindow.Create(3))
+            {
+                BackgroundColor = Color.Red
+            };
 
             IsPresented = false;
         }
