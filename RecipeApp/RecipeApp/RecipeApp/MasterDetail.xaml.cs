@@ -18,7 +18,7 @@ namespace RecipeApp
 
             Detail = new NavigationPage(CreateWindow.Create(1))
             {
-                BackgroundColor = Color.Red
+                BarBackgroundColor = Color.Red
             };
         }
 
@@ -26,7 +26,7 @@ namespace RecipeApp
         {
             Detail = new NavigationPage(CreateWindow.Create(1))
             {
-                BackgroundColor = Color.Red
+                BarBackgroundColor = Color.Red
             };
 
             IsPresented = false;
@@ -36,7 +36,7 @@ namespace RecipeApp
         {
             Detail = new NavigationPage(CreateWindow.Create(2))
             {
-                BackgroundColor = Color.Red
+                BarBackgroundColor = Color.Red
             };
 
             IsPresented = false;
@@ -46,7 +46,7 @@ namespace RecipeApp
         {
             Detail = new NavigationPage(CreateWindow.Create(3))
             {
-                BackgroundColor = Color.Red
+                BarBackgroundColor = Color.Red
             };
 
             IsPresented = false;
