@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿﻿using System;
 using Xamarin.Forms;
 
 namespace RecipeApp
@@ -31,7 +29,7 @@ namespace RecipeApp
 
 
 
-    public interface Iterator<T> : System.Collections.Generic.IList<T>
+	public interface Iterator<T>
 	{
 		Option<T> GetNext();
 		void Reset();
@@ -71,38 +69,17 @@ namespace RecipeApp
 		}
 	}
 
-    public class List<T> : Iterator<T>
+	public class List<T> : Iterator<T>
 	{
-        private System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
+		public System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
 		public int Current = -1;
 
-        public T this[int index] { get=>Elements[index]; set => Elements[index] = value; }
+		public void Add(T value)
+		{
+			Elements.Add(value);
+		}
 
-        public int Count => Elements.Count;
-
-        public bool IsReadOnly => false;
-
-        public void Add(T item)
-        {
-            this.Elements.Add(item);
-        }
-
-        public void Clear()
-        {
-            this.Elements.Clear();
-        }
-
-        public bool Contains(T item)
-        {
-            return this.Elements.Contains(item);
-        }
-
-        public void CopyTo(T[] array, int arrayIndex)
-        {
-            this.Elements.CopyTo(array, arrayIndex);
-        }
-
-        public Option<T> GetCurrent()
+		public Option<T> GetCurrent()
 		{
 			try
 			{
@@ -111,63 +88,37 @@ namespace RecipeApp
 			catch (ArgumentOutOfRangeException) { return new None<T>(); }
 		}
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return this.Elements.GetEnumerator();
-        }
-
-        public Option<T> GetNext()
+		public Option<T> GetNext()
 		{
 			this.Current += 1;
 			return GetCurrent();
 		}
 
-        public int IndexOf(T item)
-        {
-            return this.Elements.IndexOf(item);
-        }
-
-        public void Insert(int index, T item)
-        {
-            this.Elements.Insert(index, item);
-        }
-
-        public bool Remove(T item)
-        {
-            return this.Elements.Remove(item);
-        }
-
-        public void RemoveAt(int index)
-        {
-            this.Elements.RemoveAt(index);
-        }
-
-        public void Reset()
+		public void Reset()
 		{
 			this.Current = -1;
 		}
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return this.Elements.GetEnumerator();
-        }
-    }
+	}
 
     public class Recipe
     {
-		public string ID { get; set; }
-		public string Title { get; set; }
-		public object Beschrijving { get; set; }
-		public string Ingredienten { get; set; }
-		public object Voorbereiding { get; set; }
-		public string Bereidingswijze { get; set; }
-		public string Categorie { get; set; }
-		public string Imagelink { get; set; }
-		public object Valid { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<string> Ingredients { get; set; }
+        public string ImageURL { get; set; }
 
         public Recipe(int index)
         {
             
+        }
+
+        public Option<Recipe> Search(string str)
+        {
+            if (Ingredients.Elements.Contains(str))
+            {
+                return new Some<Recipe>(this);
+            }
+            else return new None<Recipe>();
         }
     }
 }
