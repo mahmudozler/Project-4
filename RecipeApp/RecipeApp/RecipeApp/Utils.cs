@@ -102,23 +102,19 @@ namespace RecipeApp
 
     public class Recipe
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public List<string> Ingredients { get; set; }
-        public string ImageURL { get; set; }
+		public string ID { get; set; }
+		public string Title { get; set; }
+		public object Beschrijving { get; set; }
+		public string Ingredienten { get; set; }
+		public object Voorbereiding { get; set; }
+		public string Bereidingswijze { get; set; }
+		public string Categorie { get; set; }
+		public string Imagelink { get; set; }
+		public object Valid { get; set; }
 
         public Recipe(int index)
         {
             
-        }
-
-        public Option<Recipe> Search(string str)
-        {
-            if (Ingredients.Elements.Contains(str))
-            {
-                return new Some<Recipe>(this);
-            }
-            else return new None<Recipe>();
         }
     }
 }
