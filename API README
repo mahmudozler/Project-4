@@ -1,0 +1,14 @@
+HOW TO USE DATABASE API
+
+examples down below.
+
+infpr04.esy.es/recipe.php
+infpr04.esy.es/recipe.php?id=5
+
+infpr04.esy.es/login.php?user=user&pass=pass
+
+infpr04.esy.es/register.php?user=bob&pass=water
+
+infpr04.esy.es/search.php?input=pizza
+infpr04.esy.es/search.php?input=chicken&category=pizza
+infpr04.esy.es/search.php?input=&category=pizza                 //<-- category search only
