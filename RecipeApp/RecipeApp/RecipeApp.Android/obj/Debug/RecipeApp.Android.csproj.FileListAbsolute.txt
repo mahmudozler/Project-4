@@ -230,3 +230,4 @@ C:\Users\MuhammedInce\Documents\GitHub\project-4-app\RecipeApp\RecipeApp\RecipeA
 C:\Users\MuhammedInce\Documents\GitHub\project-4-app\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\uploadflags.txt
 C:\Users\MuhammedInce\Documents\GitHub\project-4-app\RecipeApp\RecipeApp\RecipeApp.Android\bin\Debug\RecipeApp.Android.dll.mdb
 C:\Users\MuhammedInce\Documents\GitHub\project-4-app\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\android\assets\RecipeApp.Android.dll.mdb
+C:\Users\MuhammedInce\Documents\GitHub\project-4-app\RecipeApp\RecipeApp\RecipeApp.Android\obj\Debug\RecipeApp.Android.csprojResolveAssemblyReference.cache
