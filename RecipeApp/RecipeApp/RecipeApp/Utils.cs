@@ -1,4 +1,6 @@
-﻿﻿using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace RecipeApp
@@ -29,7 +31,7 @@ namespace RecipeApp
 
 
 
-	public interface Iterator<T>
+    public interface Iterator<T> : System.Collections.Generic.IList<T>
 	{
 		Option<T> GetNext();
 		void Reset();
@@ -69,17 +71,38 @@ namespace RecipeApp
 		}
 	}
 
-	public class List<T> : Iterator<T>
+    public class List<T> : Iterator<T>
 	{
-		public System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
+        private System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
 		public int Current = -1;
 
-		public void Add(T value)
-		{
-			Elements.Add(value);
-		}
+        public T this[int index] { get=>Elements[index]; set => Elements[index] = value; }
 
-		public Option<T> GetCurrent()
+        public int Count => Elements.Count;
+
+        public bool IsReadOnly => false;
+
+        public void Add(T item)
+        {
+            this.Elements.Add(item);
+        }
+
+        public void Clear()
+        {
+            this.Elements.Clear();
+        }
+
+        public bool Contains(T item)
+        {
+            return this.Elements.Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            this.Elements.CopyTo(array, arrayIndex);
+        }
+
+        public Option<T> GetCurrent()
 		{
 			try
 			{
@@ -88,17 +111,47 @@ namespace RecipeApp
 			catch (ArgumentOutOfRangeException) { return new None<T>(); }
 		}
 
-		public Option<T> GetNext()
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this.Elements.GetEnumerator();
+        }
+
+        public Option<T> GetNext()
 		{
 			this.Current += 1;
 			return GetCurrent();
 		}
 
-		public void Reset()
+        public int IndexOf(T item)
+        {
+            return this.Elements.IndexOf(item);
+        }
+
+        public void Insert(int index, T item)
+        {
+            this.Elements.Insert(index, item);
+        }
+
+        public bool Remove(T item)
+        {
+            return this.Elements.Remove(item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            this.Elements.RemoveAt(index);
+        }
+
+        public void Reset()
 		{
 			this.Current = -1;
 		}
-	}
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.Elements.GetEnumerator();
+        }
+    }
 
     public class Recipe
     {

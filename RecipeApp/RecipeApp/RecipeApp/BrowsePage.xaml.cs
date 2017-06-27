@@ -41,14 +41,15 @@ namespace RecipeApp
             }
 
             var response = await getData(inputstring);
-            var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
-			foreach (var recipe in records)
+            var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
+            while (records.GetNext().Visit(item => true, () => false))
 			{
-                lay.Children.Add(new Label { Text = recipe.Title, TextColor = Color.Red, });
+                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, ()=>""), TextColor = Color.Red, });
 				lay.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.Gray });
-				lay.Children.Add(new Label { Text = recipe.Bereidingswijze, TextColor = Color.Red });
-                lay.Children.Add(new Image { Source = recipe.Imagelink });
+                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Red });
+                lay.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") });
 			}
+
 
 		}
 
