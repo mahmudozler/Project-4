@@ -15,7 +15,6 @@ namespace RecipeApp
         public MainRecipePage()
         {
             InitializeComponent();
-            //NavigationPage.SetHasNavigationBar(this, false);
 
             IngredientsLabel.Text = "1. water\n2. zout";
         }

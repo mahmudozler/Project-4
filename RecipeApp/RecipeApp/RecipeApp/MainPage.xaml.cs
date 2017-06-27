@@ -11,11 +11,10 @@ namespace RecipeApp
 	{
         public MainPage()
         {
-            InitializeComponent();
-            //NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();;
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void MainRecipe_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainRecipePage());
         }

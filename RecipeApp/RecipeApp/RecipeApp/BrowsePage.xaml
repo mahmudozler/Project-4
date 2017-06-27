@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RecipeApp.BrowsePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RecipeApp.BrowsePage" Title="Browse">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Padding="20, 10">
+            <Label Text="SEARCH" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
 
-                <Label Text="Search for recipe" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
-            <Grid>
-
+            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+            <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="175" />
                 </Grid.ColumnDefinitions>
-                
-                <Entry Grid.Column="0" TextColor="Gray" Placeholder="fill in recipe name" HeightRequest="40" BackgroundColor="#e8b2a9" Margin="20"/>
-                <Picker x:Name="CategoryPicker" Grid.Column="1" Title="Category" Margin="10" HeightRequest="40">
+
+                <Entry Grid.Column="0" Grid.ColumnSpan="2" Placeholder="fill in recipe name" HeightRequest="30" BackgroundColor="#e8b2a9" Margin="5"/>
+                <Picker x:Name="CategoryPicker" Grid.Column="1" Grid.Row="1" Title="Category" HeightRequest="40" Margin="5" TextColor="#1b1b1b"  >
                     <Picker.Items>
                         <x:String>All</x:String>
-                        <x:String>Vis</x:String> 
-                        <x:String>Drank</x:String>
-                        <x:String>Vegetarisch</x:String>
+                        <x:String>Main dish</x:String>
+                        <x:String>Snacks</x:String>
+                        <x:String>Pizza</x:String>
+                        <x:String>Pasta</x:String>
+                        <x:String>Desert</x:String>
+                        <x:String>Drinks</x:String>
+                        <x:String>Appetizer</x:String>
+                        <x:String>Breakfast</x:String>
                     </Picker.Items>
                 </Picker>
             </Grid>
-                <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+            <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+            <Button x:Name="recipe_search" TextColor="#fff" Text="Search for recipe" BackgroundColor="#c4432d" Clicked="searchResult"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

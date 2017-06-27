@@ -12,5 +12,11 @@ namespace RecipeApp
             InitializeComponent();
             this.CategoryPicker.SelectedIndex = 0;
         }
+
+        //public void searchResult() {
+        async void searchResult(object sender, EventArgs e)
+			{
+				var answer = await DisplayAlert("Question?", "Would you like some salt?", "Yes", "No");
+			}
     }
 }
