@@ -11,7 +11,7 @@
                     <ColumnDefinition Width="175" />
                 </Grid.ColumnDefinitions>
 
-                <Entry Grid.Column="0" Grid.ColumnSpan="2" Placeholder="fill in recipe name" HeightRequest="30" BackgroundColor="#e8b2a9" Margin="5"/>
+                <Entry Completed="Search" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="fill in recipe name" HeightRequest="30" BackgroundColor="#e8b2a9" Margin="5"/>
                 <Picker x:Name="CategoryPicker" Grid.Column="1" Grid.Row="1" Title="Category" HeightRequest="40" Margin="5" TextColor="#1b1b1b"  >
                     <Picker.Items>
                         <x:String>All</x:String>
@@ -27,7 +27,6 @@
                 </Picker>
             </Grid>
             <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
-            <Button x:Name="recipe_search" TextColor="#fff" Text="Search for recipe" BackgroundColor="#c4432d" Clicked="searchResult"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
