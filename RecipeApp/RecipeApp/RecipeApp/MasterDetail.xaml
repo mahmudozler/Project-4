@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RecipeApp.MasterDetail">
     
     <MasterDetailPage.Master>
-        <ContentPage Padding="5" BackgroundColor="White" Title="Master">
+        <ContentPage Padding="5" BackgroundColor="White" Title="Menu">
             <ContentPage.Content>
                 <StackLayout>
                     <Label Text="RECIPE APP" TextColor="Red" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
