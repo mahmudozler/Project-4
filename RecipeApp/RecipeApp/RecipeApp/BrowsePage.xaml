@@ -9,16 +9,15 @@
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="175" />
+                    <ColumnDefinition Width="100" />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <Entry Completed="Search" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="fill in recipe name" HeightRequest="30" BackgroundColor="#e8b2a9" Margin="5"/>
-                <Picker x:Name="CategoryPicker" Grid.Row="0" Grid.Column="1" Title="Category" HeightRequest="40" Margin="5" TextColor="#1b1b1b"  >
+                <Entry Completed="Search" Grid.Row="0" Grid.Column="0" Placeholder="fill in recipe name" BackgroundColor="#e8b2a9"/>
+                <Picker x:Name="CategoryPicker" Grid.Row="0" Grid.Column="1" Title="Category" TextColor="#1b1b1b"  >
                     <Picker.Items>
                         <x:String>All</x:String>
                         <x:String>Main dish</x:String>
@@ -31,10 +30,17 @@
                         <x:String>Breakfast</x:String>
                     </Picker.Items>
                 </Picker>
-                    <StackLayout x:Name="lay" Grid.Row="1">
-
-                    </StackLayout>
             </Grid>
+                    <Grid x:Name="grid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
             <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
         </StackLayout>
         </ScrollView>

@@ -24,7 +24,7 @@ namespace RecipeApp
 
         private async void Search(object sender, EventArgs e)
         {
-            lay.Children.Clear();
+            grid.Children.Clear();
 
             Entry textbox = (Entry)sender;
             string text = textbox.Text;
@@ -44,10 +44,10 @@ namespace RecipeApp
             var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
             while (records.GetNext().Visit(item => true, () => false))
             {
-                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold });
-                lay.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.LightGray });
-                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black });
-                lay.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") });
+                grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 1, records.Current);
+                grid.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.WhiteSmoke }, 1, records.Current);
+                grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 1, records.Current);
+                grid.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") }, 0, records.Current);
             }
 
 
