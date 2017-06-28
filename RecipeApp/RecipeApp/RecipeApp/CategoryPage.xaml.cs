@@ -25,7 +25,7 @@ namespace RecipeApp
 		{
 			//get the data from JSON link in record list
             var response = await getData(category);
-			System.Collections.Generic.List<Recipe> records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
+			var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
 			foreach (var recipe in records)
 			{
                 var Clicklabel = new Label { Text = recipe.Title, TextColor = Color.Red, FontSize = 20 };
@@ -48,9 +48,7 @@ namespace RecipeApp
 
 		public void recipe_clicked(Recipe recipe)
 		{
-			//App.Current.MainPage = new detailPage(repice);
             Navigation.PushAsync(new MainRecipePage(recipe));
-			//App.Current.MainPage = new NavigationPage(new detailPage(repice));
 		}
     }
 }

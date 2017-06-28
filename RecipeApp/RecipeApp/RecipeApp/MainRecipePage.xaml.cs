@@ -18,6 +18,7 @@ namespace RecipeApp
 
 			// Fill in all fields with recipe data on initialization from parameter
             recipe_name.Text = recipe.Title;
+            recipe_image.Source = recipe.Imagelink;
             recipe_beschrijving.Text = recipe.Beschrijving.ToString();
             recipe_instructions.Text = recipe.Bereidingswijze;
 
