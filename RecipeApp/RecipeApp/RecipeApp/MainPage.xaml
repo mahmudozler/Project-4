@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="White" Padding="20, 10">
-                <Label Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
+                <Label x:Name="main_recip" Text="MAIN RECIPE" TextColor="Red" FontSize="20" FontAttributes="Bold"/>
                 <Image Source="http://bbcpersian7.com/images/food-clipart-transparent-png-3.jpg" HeightRequest="150">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="MainRecipe_Tapped" NumberOfTapsRequired="1"/>
@@ -22,56 +22,57 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
+                    <!-- Link category references in Image ClassID -->
                     <StackLayout Grid.Column="0">
                         <Label Text="Main dish" TextColor="Red"/>
-                        <Image Source="https://lh5.ggpht.com/LK_pBNg6QiWcHfEmhS722_Cqq3yL28Jji-sOEeDwjFc_U-ZQ7kV-hdPqhPoFutFMxfQ=h900" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="MainDish_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Main dish" Source="https://lh5.ggpht.com/LK_pBNg6QiWcHfEmhS722_Cqq3yL28Jji-sOEeDwjFc_U-ZQ7kV-hdPqhPoFutFMxfQ=h900" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Pasta" TextColor="Red"/>
-                        <Image Source="http://thehigherlearning.com/wp-content/uploads/2014/10/pasta.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Pasta_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Pasta" Source="http://thehigherlearning.com/wp-content/uploads/2014/10/pasta.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Pizza" TextColor="Red"/>
-                        <Image Source="http://pngimg.com/uploads/pizza/pizza_PNG7151.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Pizza_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Pizza" Source="http://pngimg.com/uploads/pizza/pizza_PNG7151.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Snacks" TextColor="Red"/>
-                        <Image Source="http://fpapi.24h.ae/upload/product/item/full/03May2016_16-36-01whopper_meal.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Snacks_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Snack" Source="http://fpapi.24h.ae/upload/product/item/full/03May2016_16-36-01whopper_meal.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
 
                     <StackLayout Grid.Column="2">
                         <Label Text="Drinks" TextColor="Red"/>
-                        <Image Source="http://www.pngmart.com/files/3/Drink-PNG-File.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Drinks_Tapped" NumberOfTapsRequired="1"/>
+                        <Image ClassId="Drink" Source="http://www.pngmart.com/files/3/Drink-PNG-File.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
                             </Image.GestureRecognizers>-->
                         </Image>
                         <Label Text="Desserts" TextColor="Red"/>
-                        <Image Source="http://masonsfoods.com/wp-content/uploads/2014/06/desserts.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Deserts_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Dessert" Source="http://masonsfoods.com/wp-content/uploads/2014/06/desserts.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Appetizer" TextColor="Red"/>
-                        <Image Source="https://bmcpho.files.wordpress.com/2014/09/egg-roll.png" HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Appetizer_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>-->
+                        <Image ClassId="Appetizer" Source="https://bmcpho.files.wordpress.com/2014/09/egg-roll.png" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Breakfast" TextColor="Red"/>
-                        <Image Source="http://www.pngmart.com/files/3/Breakfast-PNG-File.png"  HeightRequest="100">
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Breakfast_Tapped" NumberOfTapsRequired="1"/>
+                        <Image ClassId="Breakfast" Source="http://www.pngmart.com/files/3/Breakfast-PNG-File.png"  HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
                             </Image.GestureRecognizers>-->
                         </Image>
                     </StackLayout>

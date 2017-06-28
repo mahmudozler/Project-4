@@ -18,5 +18,12 @@ namespace RecipeApp
         {
             await Navigation.PushAsync(new MainRecipePage());
         }
+
+		private async void Category_Tapped(object sender, EventArgs e)
+		{
+            var CategoryObject = (Image)sender;
+            //main_recip.Text = test.ClassId;
+            await Navigation.PushAsync(new CategoryPage(CategoryObject.ClassId));
+		}
     }
 }
