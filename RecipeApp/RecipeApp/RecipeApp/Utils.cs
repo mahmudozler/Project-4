@@ -76,7 +76,7 @@ namespace RecipeApp
         private System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
 		public int Current = -1;
 
-        public T this[int index] { get=>Elements[index]; set => Elements[index] = value; }
+        public T this[int index] { get=>this.Elements[index]; set => this.Elements[index] = value; }
 
         public int Count => Elements.Count;
 
@@ -164,10 +164,5 @@ namespace RecipeApp
 		public string Categorie { get; set; }
 		public string Imagelink { get; set; }
 		public object Valid { get; set; }
-
-        public Recipe(int index)
-        {
-            
-        }
     }
 }
