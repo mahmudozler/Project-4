@@ -23,7 +23,7 @@ namespace RecipeApp
         }
 
         private async void Search(object sender, EventArgs e)
-		{
+        {
             lay.Children.Clear();
 
             Entry textbox = (Entry)sender;
@@ -31,7 +31,7 @@ namespace RecipeApp
             string category = this.CategoryPicker.Items[this.CategoryPicker.SelectedIndex];
             string inputstring = "input=";
 
-            if(category == "All")
+            if (category == "All")
             {
                 inputstring += text;
             }
@@ -43,21 +43,21 @@ namespace RecipeApp
             var response = await getData(inputstring);
             var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
             while (records.GetNext().Visit(item => true, () => false))
-			{
-                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, ()=>""), TextColor = Color.Red, });
-				lay.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.Gray });
-                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Red });
+            {
+                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold });
+                lay.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.LightGray });
+                lay.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black });
                 lay.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") });
-			}
+            }
 
 
-		}
+        }
 
         private async Task<String> getData(string str)
-		{
-			HttpClient client = new HttpClient();
-			var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?"+str);
-			return response;
-		}
+        {
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?" + str);
+            return response;
+        }
     }
 }
