@@ -1,4 +1,4 @@
-﻿using Xamarin.Forms;
+﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -44,10 +44,12 @@ namespace RecipeApp
             var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
             while (records.GetNext().Visit(item => true, () => false))
             {
+				var image = new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") };
+				image.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(records.GetCurrent().Visit(item => item.Title, () => "none"))) });
                 grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 1, records.Current);
                 grid.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.WhiteSmoke }, 1, records.Current);
                 grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 1, records.Current);
-                grid.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") }, 0, records.Current);
+                grid.Children.Add(image, 0, records.Current);
             }
 
 
@@ -59,5 +61,11 @@ namespace RecipeApp
             var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?" + str);
             return response;
         }
+
+		public void recipe_clicked(string recipe)
+		{
+			//await Navigation.PushAsync(new MainRecipePage(recipe));
+            searchlabel.Text = recipe;
+		}
     }
 }

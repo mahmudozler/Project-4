@@ -1,16 +1,15 @@
 ﻿<Properties StartupConfiguration="{85455386-00E5-4A0F-B442-63118CCC4DC2}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/BrowsePage.xaml.cs">
     <Files>
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="42" Column="15" />
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="47" Column="67" />
+      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="19" Column="36" />
+      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="48" Column="46" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="23" Column="4" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="87" Column="1" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml" Line="29" Column="15" />
-      <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml.cs" Line="21" Column="43" />
+      <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml.cs" Line="15" Column="40" />
       <File FileName="RecipeApp/RecipeApp/CategoryPage.xaml" Line="10" Column="1" />
       <File FileName="RecipeApp/RecipeApp/CategoryPage.xaml.cs" Line="53" Column="38" />
-      <File FileName="RecipeApp/RecipeApp/Utils.cs" Line="1" Column="1" />
-      <File FileName="RecipeApp/RecipeApp.Android/obj/Debug/RecipeApp.Droid.MainPage.xaml.g.cs" Line="22" Column="39" />
+      <File FileName="RecipeApp/RecipeApp/Utils.cs" Line="57" Column="19" />
       <File FileName="RecipeApp/RecipeApp/MasterDetail.xaml.cs" Line="15" Column="30" />
       <File FileName="RecipeApp/RecipeApp/MasterDetail.xaml" Line="29" Column="20" />
       <File FileName="RecipeApp/RecipeApp/App.xaml.cs" Line="14" Column="13" />
@@ -22,6 +21,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.RecipeApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.EB45DB9D-4F64-470B-80F4-CC45ED3550FE" />
-  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.Nexus_7" />
+  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.SMARTPHONE" />
   <MultiItemStartupConfigurations />
 </Properties>
