@@ -32,50 +32,47 @@ namespace RecipeApp
             }
         }
 
-        public static float Chance(Recipe recipe, List<Recipe> recipes)
+        public static float Chance(Recipe current, Recipe recipe)
         {
             float chance = 0.0f;
 
-            foreach (Recipe x in recipes)
+            if (recipe.ID != current.ID)
             {
-                if (x.ID == recipe.ID)
-                {
-                    continue;
-                }
-
-                if (x.Categorie == recipe.Categorie)
+                if (recipe.Categorie == current.Categorie)
                 {
                     chance = chance + 10;
                 }
 
-                foreach (char ingredient in recipe.Ingredienten)
+                var currentIngredientList = current.Ingredienten.Split(',');
+                var IngredientList = recipe.Ingredienten.Split(',');
+
+                foreach (string ingredient in IngredientList)
                 {
-                    foreach (char y in x.Ingredienten)
+                    foreach (string y in currentIngredientList)
                     {
                         if (y == ingredient)
                         {
                             chance = chance + 2;
                         }
                     }
-
                 }
             }
             return chance;
         }
 
-        public List<Recipe> RandomRecipe(List<Recipe> recipes, int count = 3)
+        public List<Recipe> RandomRecipe(Recipe current, List<Recipe> recipes, int count = 3)
         {
             List<int> recipeChance = new List<int>();
             int totalChance = 0;
 
             for (int x = 0; x < recipes.Count; x++)
             {
-                totalChance = (int)(totalChance + Chance(recipes[x], recipes));
+                totalChance = (int)(totalChance + Chance(current, recipes[x]));
             }
 
             for (int x = 0; x < recipes.Count; x++)
             {
-                float chance = Chance(recipes[x], recipes);
+                float chance = Chance(current, recipes[x]);
                 float currentChance = chance / totalChance * 100.0f;
                 for (int y = 0; y < currentChance; y++)
                 {
@@ -112,7 +109,7 @@ namespace RecipeApp
                 recipes.Add(recipe);
             }
 
-            List<Recipe> randomRecipe = RandomRecipe(recipes, 3);
+            List<Recipe> randomRecipe = RandomRecipe(rec, recipes, 3);
 
             foreach (var recipe in randomRecipe)
             {
