@@ -50,10 +50,19 @@ namespace RecipeApp
                 tapgr.Tapped += async (s, events) => { Image img = (Image)s; await Navigation.PushAsync(new MainRecipePage(records[img.index])); };
                 image.GestureRecognizers.Add(tapgr);
 
-                //image.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command( (obj) => { Image img = (Image)obj; Console.WriteLine(img.index);/*await Navigation.PushAsync(new MainRecipePage(records[img.index]));*/ }) }); ;
-				grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 1, records.Current);
-                grid.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.WhiteSmoke }, 1, records.Current);
-                grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 1, records.Current);
+                var bview = new BoxView { index = records.Current, HeightRequest = 1, BackgroundColor = Color.WhiteSmoke };
+				TapGestureRecognizer tapgrtwo = new TapGestureRecognizer();
+                tapgrtwo.Tapped += async (s, events) => { BoxView bv = (BoxView)s; await Navigation.PushAsync(new MainRecipePage(records[bv.index])); };
+                bview.GestureRecognizers.Add(tapgrtwo);
+
+                Grid innergrid = new Grid();
+                innergrid.RowDefinitions.Add(new RowDefinition{Height=20});
+                innergrid.RowDefinitions.Add(new RowDefinition { Height = 80});
+
+				grid.Children.Add(bview, 1, records.Current);
+                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
+                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 0, 1);
+                grid.Children.Add(innergrid, 1, records.Current);
                 grid.Children.Add(image, 0, records.Current);
             }
 
@@ -67,6 +76,15 @@ namespace RecipeApp
             {}
 
         }
+
+        public class BoxView : Xamarin.Forms.BoxView
+		{
+			public int index { get; set; } = 0;
+
+            public BoxView() : base()
+			{ }
+
+		}
 
 
         private async Task<String> getData(string str)
