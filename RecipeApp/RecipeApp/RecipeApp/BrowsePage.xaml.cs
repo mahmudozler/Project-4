@@ -1,4 +1,4 @@
-﻿using Xamarin.Forms;
+﻿﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -41,17 +41,51 @@ namespace RecipeApp
             }
 
             var response = await getData(inputstring);
-            var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
+            List<Recipe> records = JsonConvert.DeserializeObject<List<Recipe>>(response);
+
             while (records.GetNext().Visit(item => true, () => false))
             {
-                grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 1, records.Current);
-                grid.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.WhiteSmoke }, 1, records.Current);
-                grid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 1, records.Current);
-                grid.Children.Add(new Image { Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") }, 0, records.Current);
+                var image = new Image { index = records.Current, Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") };
+                TapGestureRecognizer tapgr = new TapGestureRecognizer();
+                tapgr.Tapped += async (s, events) => { Image img = (Image)s; await Navigation.PushAsync(new MainRecipePage(records[img.index])); };
+                image.GestureRecognizers.Add(tapgr);
+
+                var bview = new BoxView { index = records.Current, HeightRequest = 1, BackgroundColor = Color.WhiteSmoke };
+				TapGestureRecognizer tapgrtwo = new TapGestureRecognizer();
+                tapgrtwo.Tapped += async (s, events) => { BoxView bv = (BoxView)s; await Navigation.PushAsync(new MainRecipePage(records[bv.index])); };
+                bview.GestureRecognizers.Add(tapgrtwo);
+
+                Grid innergrid = new Grid();
+                innergrid.RowDefinitions.Add(new RowDefinition{Height=20});
+                innergrid.RowDefinitions.Add(new RowDefinition { Height = 80});
+
+				grid.Children.Add(bview, 1, records.Current);
+                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
+                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 0, 1);
+                grid.Children.Add(innergrid, 1, records.Current);
+                grid.Children.Add(image, 0, records.Current);
             }
 
+        }
+
+        public class Image : Xamarin.Forms.Image
+        {
+            public int index { get; set; } = 0;
+
+            public Image() : base()
+            {}
 
         }
+
+        public class BoxView : Xamarin.Forms.BoxView
+		{
+			public int index { get; set; } = 0;
+
+            public BoxView() : base()
+			{ }
+
+		}
+
 
         private async Task<String> getData(string str)
         {
