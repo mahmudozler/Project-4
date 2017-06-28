@@ -11,16 +11,28 @@
 namespace RecipeApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/osman/Desktop/WorkSpace/Github/project-4-app/RecipeApp/RecipeApp/RecipeApp/MainRecipePage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/satrya/Documents/GitHub/project-4-app/RecipeApp/RecipeApp/RecipeApp/MainRecipePage.xaml")]
     public partial class MainRecipePage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label IngredientsLabel;
+        private global::Xamarin.Forms.Label recipe_name;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label recipe_beschrijving;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout recipe_ingredients;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label recipe_instructions;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainRecipePage));
-            IngredientsLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.Label>(this, "IngredientsLabel");
+            recipe_name = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.Label>(this, "recipe_name");
+            recipe_beschrijving = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.Label>(this, "recipe_beschrijving");
+            recipe_ingredients = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.StackLayout>(this, "recipe_ingredients");
+            recipe_instructions = global::Xamarin.Forms.NameScopeExtensions.FindByName <global::Xamarin.Forms.Label>(this, "recipe_instructions");
         }
     }
 }

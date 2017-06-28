@@ -26,12 +26,14 @@ namespace RecipeApp
 			//get the data from JSON link in record list
             var response = await getData(category);
 			System.Collections.Generic.List<Recipe> records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
-			foreach (var repice in records)
+			foreach (var recipe in records)
 			{
-				category_results.Children.Add(new Label { Text = repice.Title, TextColor = Color.Red, FontSize = 20 });
+                var Clicklabel = new Label { Text = recipe.Title, TextColor = Color.Red, FontSize = 20 };
+                Clicklabel.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
+				category_results.Children.Add(Clicklabel);
 				category_results.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.Gray });
-                category_results.Children.Add(new Label { Text = repice.Beschrijving.ToString(), TextColor = Color.Red });
-				category_results.Children.Add(new Image { Source = repice.Imagelink });
+                category_results.Children.Add(new Label { Text = recipe.Beschrijving.ToString(), TextColor = Color.Red });
+				category_results.Children.Add(new Image { Source = recipe.Imagelink });
 				//results.Children.Add(new Button { Text = "See recipe", Command = new Command(() => button_clicked((RootObject)repice)) });
 			}
 
@@ -42,6 +44,13 @@ namespace RecipeApp
 			HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?input=&category=" + category);
 			return response;
+		}
+
+		public void recipe_clicked(Recipe recipe)
+		{
+			//App.Current.MainPage = new detailPage(repice);
+            Navigation.PushAsync(new MainRecipePage(recipe));
+			//App.Current.MainPage = new NavigationPage(new detailPage(repice));
 		}
     }
 }

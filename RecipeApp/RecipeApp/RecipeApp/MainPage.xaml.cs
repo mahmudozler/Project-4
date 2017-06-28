@@ -16,7 +16,7 @@ namespace RecipeApp
 
         private async void MainRecipe_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainRecipePage());
+            //await Navigation.PushAsync(new MainRecipePage());
         }
 
 		private async void Category_Tapped(object sender, EventArgs e)
