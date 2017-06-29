@@ -26,9 +26,13 @@ namespace RecipeApp
             recipe_instructions.Text = recipe.Bereidingswijze;
 
             var IngredientList = recipe.Ingredienten.Split(',').ToList();  //split string between to get ingredients seperate
-            foreach (var ingredient in IngredientList)
+            for (int x = 0; x < IngredientList.Count; x++)
             {
-                recipe_ingredients.Children.Add(new Label { Text = ingredient, TextColor = Color.Black });
+                if (IngredientList[x][0] == ' ')
+                {
+                    IngredientList[x] = IngredientList[x].Substring(1);
+                }
+                recipe_ingredients.Children.Add(new Label { Text = IngredientList[x], TextColor = Color.Black });
             }
         }
 
@@ -43,8 +47,24 @@ namespace RecipeApp
                     chance = chance + 2;
                 }
 
-                var currentIngredientList = current.Ingredienten.Split(',');
-                var IngredientList = recipe.Ingredienten.Split(',');
+                var currentIngredientList = current.Ingredienten.Split(',').ToList();
+                var IngredientList = recipe.Ingredienten.Split(',').ToList();
+
+                for (int x = 0; x < currentIngredientList.Count; x++)
+                {
+                    if (currentIngredientList[x][0] == ' ')
+                    {
+                        currentIngredientList[x] = currentIngredientList[x].Substring(1);
+                    }
+                }
+
+                for (int x = 0; x < IngredientList.Count; x++)
+                {
+                    if (IngredientList[x][0] == ' ')
+                    {
+                        IngredientList[x] = IngredientList[x].Substring(1);
+                    }
+                }
 
                 foreach (string ingredient in IngredientList)
                 {
