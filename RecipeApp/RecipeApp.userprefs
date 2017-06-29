@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/BrowsePage.xaml.cs">
     <Files>
       <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="48" Column="15" />
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="42" Column="35" />
+      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="42" Column="6" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="30" Column="13" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="87" Column="1" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml" Line="44" Column="15" />
