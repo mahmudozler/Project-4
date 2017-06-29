@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/BrowsePage.xaml.cs">
     <Files>
       <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="48" Column="15" />
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="49" Column="73" />
+      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="36" Column="37" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="30" Column="13" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="87" Column="1" />
-      <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml" Line="34" Column="15" />
+      <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml" Line="44" Column="15" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="RecipeApp/RecipeApp/CategoryPage.xaml" Line="10" Column="1" />
+      <File FileName="RecipeApp/RecipeApp/CategoryPage.xaml" Line="20" Column="1" />
       <File FileName="RecipeApp/RecipeApp/CategoryPage.xaml.cs" Line="53" Column="38" />
       <File FileName="RecipeApp/RecipeApp/Utils.cs" Line="77" Column="14" />
       <File FileName="RecipeApp/RecipeApp/MasterDetail.xaml.cs" Line="15" Column="30" />
@@ -21,6 +21,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.RecipeApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.EB45DB9D-4F64-470B-80F4-CC45ED3550FE" />
-  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.SMARTPHONE" />
+  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.Nexus_7" />
   <MultiItemStartupConfigurations />
 </Properties>

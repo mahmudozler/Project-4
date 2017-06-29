@@ -31,13 +31,36 @@ namespace RecipeApp
             string category = this.CategoryPicker.Items[this.CategoryPicker.SelectedIndex];
             string inputstring = "input=";
 
-            if (category == "All")
+            if(text.Contains(" "))
             {
-                inputstring += text;
+                string[] tempstr = text.Split(' ');
+
+				if (category == "All")
+				{
+                    foreach(string str in tempstr)
+                    {
+						inputstring += str+ "+";                        
+                    }
+				}
+				else
+				{
+					foreach (string str in tempstr)
+					{
+						inputstring += str+"+";
+					}
+					inputstring += text + "&category=" + category;
+				}
             }
             else
             {
-                inputstring += text + "&category=" + category;
+				if (category == "All")
+				{
+					inputstring += text;
+				}
+				else
+				{
+					inputstring += text + "&category=" + category;
+				}
             }
 
             var response = await getData(inputstring);
