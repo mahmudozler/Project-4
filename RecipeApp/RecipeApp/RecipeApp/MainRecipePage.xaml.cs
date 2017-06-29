@@ -52,7 +52,7 @@ namespace RecipeApp
                     {
                         if (y == ingredient)
                         {
-                            chance = chance + 2;
+                            chance = chance + 10;
                         }
                     }
                 }
@@ -109,7 +109,7 @@ namespace RecipeApp
                 recipes.Add(recipe);
             }
 
-            List<Recipe> randomRecipe = RandomRecipe(rec, recipes, 3);
+            List<Recipe> randomRecipe = RandomRecipe(rec, recipes, 5);
 
             int counter = 0; //for gridplacement
             foreach (var recipe in randomRecipe)
