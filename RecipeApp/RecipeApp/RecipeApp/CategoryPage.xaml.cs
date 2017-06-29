@@ -26,18 +26,28 @@ namespace RecipeApp
             //get the data from JSON link in record list
             var response = await getData(category);
             var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
+            var counter = 0;
             foreach (var recipe in records)
             {
-                var Clicklabel = new Label { Text = recipe.Title, TextColor = Color.Red, FontSize = 20, FontAttributes = FontAttributes.Bold };
-                Clicklabel.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
-                category_results.Children.Add(Clicklabel);
-                category_results.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.LightGray });
-                category_results.Children.Add(new Label { Text = recipe.Beschrijving.ToString(), TextColor = Color.Black });
-                var ClickImage = new Image { Source = recipe.Imagelink };
-                ClickImage.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
-                category_results.Children.Add(ClickImage);
-                //results.Children.Add(new Button { Text = "See recipe", Command = new Command(() => button_clicked((RootObject)repice)) });
-            }
+                var image = new Image { Source = recipe.Imagelink };
+				image.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
+
+				var bview = new BoxView { BackgroundColor = Color.WhiteSmoke };
+				bview.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
+
+				Grid innergrid = new Grid();
+				innergrid.RowDefinitions.Add(new RowDefinition { Height = 20 });
+				innergrid.RowDefinitions.Add(new RowDefinition { Height = 80 });
+
+				grid.Children.Add(bview, 1, counter);
+				innergrid.Children.Add(new Label { Text = recipe.Title, TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
+				innergrid.Children.Add(new Label { Text = (string)recipe.Beschrijving, TextColor = Color.Black }, 0, 1);
+				grid.Children.Add(innergrid, 1, counter);
+				grid.Children.Add(image, 0, counter);
+
+                counter++;
+		
+			}
 
         }
 
