@@ -27,9 +27,12 @@ namespace RecipeApp
             grid.Children.Clear();
 
             Entry textbox = (Entry)sender;
-            string text = textbox.Text;
+            string text;
+
+            if (textbox.Text != null) { text = textbox.Text; } else { text = ""; }
             string category = this.CategoryPicker.Items[this.CategoryPicker.SelectedIndex];
             string inputstring = "input=";
+
 
             if(text.Contains(" "))
             {
