@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SQLform.LoginPage">
+	<ContentPage.Content>
+        <StackLayout Padding="15,10">
+            <Label Text = "sessionTest" FontSize="Large"/>
+            <Entry x:Name="log_name" Placeholder="user"/>
+            <Entry x:Name="log_pass" Placeholder="pass"/>
+            <Button x:Name="login" Text="LOGIN" />
+            <Label x:Name="log_status" Text="" FontSize="Large"/>
+            <Button x:Name="tolog" Text="go to account" />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
