@@ -28,7 +28,17 @@
                 <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
 
                 <StackLayout x:Name="Recommended"/>
-            </StackLayout>
+                    <Grid x:Name="grid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

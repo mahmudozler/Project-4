@@ -111,17 +111,27 @@ namespace RecipeApp
 
             List<Recipe> randomRecipe = RandomRecipe(rec, recipes, 3);
 
+            int counter = 0; //for gridplacement
             foreach (var recipe in randomRecipe)
             {
-                var Clicklabel = new Label { Text = recipe.Title, TextColor = Color.Red, FontSize = 20, FontAttributes = FontAttributes.Bold };
-                Clicklabel.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
-                Recommended.Children.Add(Clicklabel);
-                Recommended.Children.Add(new BoxView { HeightRequest = 1, BackgroundColor = Color.LightGray });
-                Recommended.Children.Add(new Label { Text = recipe.Beschrijving.ToString(), TextColor = Color.Black });
-                var ClickImage = new Image { Source = recipe.Imagelink };
-                ClickImage.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
-                Recommended.Children.Add(ClickImage);
-                //results.Children.Add(new Button { Text = "See recipe", Command = new Command(() => button_clicked((RootObject)repice)) });
+			
+				var image = new Image { Source = recipe.Imagelink };
+				image.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
+
+				var bview = new BoxView { BackgroundColor = Color.WhiteSmoke };
+				bview.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
+
+				Grid innergrid = new Grid();
+				innergrid.RowDefinitions.Add(new RowDefinition { Height = 20 });
+				innergrid.RowDefinitions.Add(new RowDefinition { Height = 80 });
+
+				grid.Children.Add(bview, 1, counter);
+				innergrid.Children.Add(new Label { Text = recipe.Title, TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
+				innergrid.Children.Add(new Label { Text = (string)recipe.Beschrijving, TextColor = Color.Black }, 0, 1);
+				grid.Children.Add(innergrid, 1, counter);
+				grid.Children.Add(image, 0, counter);
+
+				counter++;
             }
         }
 
