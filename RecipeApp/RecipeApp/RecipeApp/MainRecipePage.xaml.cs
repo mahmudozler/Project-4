@@ -114,8 +114,14 @@ namespace RecipeApp
             int counter = 0; //for gridplacement
             foreach (var recipe in randomRecipe)
             {
-			
-				var image = new Image { Source = recipe.Imagelink };
+
+				var image = new Image
+				{
+					HeightRequest = 100,
+					Source = recipe.Imagelink,
+					VerticalOptions = LayoutOptions.End,
+					Aspect = Aspect.AspectFill
+				};
 				image.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => recipe_clicked(recipe)) });
 
 				var bview = new BoxView { BackgroundColor = Color.WhiteSmoke };
@@ -125,9 +131,19 @@ namespace RecipeApp
 				innergrid.RowDefinitions.Add(new RowDefinition { Height = 20 });
 				innergrid.RowDefinitions.Add(new RowDefinition { Height = 80 });
 
+				string beschrijving;
+				if (recipe.Beschrijving.ToString().Length > 120)
+				{
+					beschrijving = recipe.Beschrijving.ToString().Substring(0, 120) + "...";
+				}
+				else
+				{
+					beschrijving = recipe.Beschrijving.ToString();
+				}
+
 				grid.Children.Add(bview, 1, counter);
 				innergrid.Children.Add(new Label { Text = recipe.Title, TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
-				innergrid.Children.Add(new Label { Text = (string)recipe.Beschrijving, TextColor = Color.Black }, 0, 1);
+				innergrid.Children.Add(new Label { Text = beschrijving, TextColor = Color.Black }, 0, 1);
 				grid.Children.Add(innergrid, 1, counter);
 				grid.Children.Add(image, 0, counter);
 

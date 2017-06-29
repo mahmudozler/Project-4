@@ -1,4 +1,4 @@
-﻿﻿﻿using Xamarin.Forms;
+﻿﻿﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -45,7 +45,10 @@ namespace RecipeApp
 
             while (records.GetNext().Visit(item => true, () => false))
             {
-                var image = new Image { index = records.Current, Source = records.GetCurrent().Visit(item => item.Imagelink, () => "") };
+				var image = new Image
+				{
+					index = records.Current,
+					Source = records.GetCurrent().Visit(item => item.Imagelink, () => ""),HeightRequest = 100,VerticalOptions = LayoutOptions.End,Aspect = Aspect.AspectFill };
                 TapGestureRecognizer tapgr = new TapGestureRecognizer();
                 tapgr.Tapped += async (s, events) => { Image img = (Image)s; await Navigation.PushAsync(new MainRecipePage(records[img.index])); };
                 image.GestureRecognizers.Add(tapgr);
