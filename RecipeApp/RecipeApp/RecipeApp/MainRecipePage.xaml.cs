@@ -40,7 +40,7 @@ namespace RecipeApp
             {
                 if (recipe.Categorie == current.Categorie)
                 {
-                    chance = chance + 10;
+                    chance = chance + 2;
                 }
 
                 var currentIngredientList = current.Ingredienten.Split(',');
@@ -52,7 +52,7 @@ namespace RecipeApp
                     {
                         if (y == ingredient)
                         {
-                            chance = chance + 10;
+                            chance = chance + 1;
                         }
                     }
                 }
