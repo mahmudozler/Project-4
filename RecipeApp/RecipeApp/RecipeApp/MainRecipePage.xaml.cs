@@ -38,13 +38,13 @@ namespace RecipeApp
 
         public static float Chance(Recipe current, Recipe recipe)
         {
-            float chance = 0.0f;
+            float chance = 1.0f;
 
             if (recipe.ID != current.ID)
             {
                 if (recipe.Categorie == current.Categorie)
                 {
-                    chance = chance + 2;
+                    chance = chance + 20;
                 }
 
                 var currentIngredientList = current.Ingredienten.Split(',').ToList();
@@ -72,7 +72,7 @@ namespace RecipeApp
                     {
                         if (y == ingredient)
                         {
-                            chance = chance + 1;
+                            chance = chance + 10;
                         }
                     }
                 }
