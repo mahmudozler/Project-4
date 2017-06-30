@@ -12,3 +12,6 @@ infpr04.esy.es/register.php?user=bob&pass=water
 infpr04.esy.es/search.php?input=pizza
 infpr04.esy.es/search.php?input=chicken&category=pizza
 infpr04.esy.es/search.php?input=&category=pizza                 //<-- category search only
+
+infpr04.esy.es/bookmark.php?user=user&add=5    //adds recept index 5
+infpr04.esy.es/bookmark.php?user=user&remove=5    //removes recept index 5
