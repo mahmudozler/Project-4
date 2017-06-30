@@ -17,6 +17,8 @@ namespace RecipeApp
                     return new BrowsePage();
                 case 3:
                     return new AccountPage();
+				case 4:
+					return new RegisterPage();
                 default:
                     return new MainPage();
             }

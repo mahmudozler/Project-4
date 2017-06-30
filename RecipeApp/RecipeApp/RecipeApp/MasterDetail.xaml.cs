@@ -51,5 +51,15 @@ namespace RecipeApp
 
             IsPresented = false;
         }
+
+		private void MenuItem4_Clicked(object sender, System.EventArgs e)
+		{
+			Detail = new NavigationPage(CreateWindow.Create(4))
+			{
+				BarBackgroundColor = Color.Red
+			};
+
+			IsPresented = false;
+		}
     }
 }
