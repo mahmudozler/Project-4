@@ -38,3 +38,5 @@ C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFAp
 C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.csproj.GenerateResource.Cache
 C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.exe
 C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.pdb
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\CategoryPage.g.cs
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\CategoryPage.baml

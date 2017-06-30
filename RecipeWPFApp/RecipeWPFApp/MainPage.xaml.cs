@@ -39,7 +39,17 @@ namespace RecipeWPFApp
             }
         }
 
-        public async Task<String> getData()
+        private void Category_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var categoryObject = (Image)sender;
+            this.NavigationService.Navigate(new CategoryPage(categoryObject.Uid));
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.RemoveBackEntry();
+            }
+        }
+
+        private async Task<String> getData()
         {
             HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("http://infpr04.esy.es/recipe.php?id=23");
