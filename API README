@@ -16,3 +16,7 @@ infpr04.esy.es/search.php?input=&category=pizza                 //<-- category s
 infpr04.esy.es/bookmark.php?user=user&add=5    //adds recept index 5
 infpr04.esy.es/bookmark.php?user=user&remove=5    //removes recept index 5
 infpr04.esy.es/bookmark.php?user=admin    //get data of specific user
+
+infpr04.esy.es/rate.php?user=user&add=20&val=10 //adds rating to recipe number 20 (ratings between 0 and 10)
+infpr04.esy.es/rate.php?user=user&remove=20 	//removes rating of recipe number 20
+infpr04.esy.es/rate.php?user=user 		//returns ratings of specific user
