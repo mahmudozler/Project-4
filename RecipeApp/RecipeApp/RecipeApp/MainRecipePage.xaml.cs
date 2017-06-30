@@ -38,13 +38,13 @@ namespace RecipeApp
 
         public static float Chance(Recipe current, Recipe recipe)
         {
-            float chance = 1.0f;
+            float chance = 0.0f;
 
             if (recipe.ID != current.ID)
             {
                 if (recipe.Categorie == current.Categorie)
                 {
-                    chance = chance + 20;
+                    chance = chance + 2;
                 }
 
                 var currentIngredientList = current.Ingredienten.Split(',').ToList();
@@ -72,7 +72,7 @@ namespace RecipeApp
                     {
                         if (y == ingredient)
                         {
-                            chance = chance + 10;
+                            chance = chance + 1;
                         }
                     }
                 }
@@ -102,11 +102,19 @@ namespace RecipeApp
 
             Random random = new Random();
             List<Recipe> randomRecipe = new List<Recipe>();
+	    
+	    int tries = 0;
             for (int x = 0; x < count; x++)
             {
+	    	if (tries > 3)
+		{
+		    break;
+		}
+	    
                 int randomInt = recipeChance[random.Next(0, recipeChance.Count)];
                 if (randomRecipe.Contains(recipes[randomInt]))
                 {
+		    tries = tries + 1;
                     x = x - 1;
                     continue;
                 }
