@@ -14,7 +14,7 @@
                 <Entry Placeholder="Fill in username"/>
 
                 <Label Text="Password" FontSize="17" TextColor="#2b2b2b" Margin="5,0,0,0" />
-                <Entry Placeholder="Fill in password" />
+                <Entry IsPassword="true" Placeholder="Fill in password" />
 
                 <Button Text="Login"/>
                 
