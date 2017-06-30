@@ -23,7 +23,16 @@ namespace RecipeWPFApp
         {
             InitializeComponent();
 
-            Main.Content = new MainPage();
+            Main.Navigate(new MainPage());
+        }
+
+        private void Home_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.Navigate(new MainPage());
+            if (Main.CanGoBack)
+            {
+                Main.RemoveBackEntry();
+            }
         }
     }
 }

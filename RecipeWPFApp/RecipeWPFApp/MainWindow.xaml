@@ -20,15 +20,14 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Name="homeText" MouseDown="Home_MouseDown" Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="1" Fill="Pink" Margin="0, 5"/>
-                <TextBlock Grid.Column="2" Text="BROWSE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Name="browseText" Grid.Column="2" Text="BROWSE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
-                <TextBlock Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Name="accountText" Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <TextBlock Grid.Column="6" Text="FOOD PORN" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
             </Grid>
-
-            <Frame Name="Main"/>
+            <Frame Name="Main" NavigationUIVisibility="Hidden"/>
         </StackPanel>
     </ScrollViewer>
 </Window>
