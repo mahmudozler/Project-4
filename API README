@@ -15,3 +15,4 @@ infpr04.esy.es/search.php?input=&category=pizza                 //<-- category s
 
 infpr04.esy.es/bookmark.php?user=user&add=5    //adds recept index 5
 infpr04.esy.es/bookmark.php?user=user&remove=5    //removes recept index 5
+infpr04.esy.es/bookmark.php?user=admin    //get data of specific user
