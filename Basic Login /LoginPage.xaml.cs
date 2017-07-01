@@ -11,12 +11,13 @@ namespace SQLform
     {
         public LoginPage()
         {
-			Application.Current.Properties["status"] = "logged_out"; // status to see if a user is logged in or not
+		
 			InitializeComponent();
-
+            if(Global.status == "logged_in") { login_page.Children.Clear(); };
             tolog.Command = new Command(() => Navigation.PushAsync(new AccountPage()));
-			login.Command = new Command(getUser);
+            login.Command = new Command(getUser);
         }
+
 
         // User login check
         private async void getUser()
@@ -34,15 +35,19 @@ namespace SQLform
             else
             {
                 // If login matches user in db change status to logged in 
-                Application.Current.Properties["status"] = "logged_in";
+                Global.status = "logged_in";
 
                 // User variables accesible throughout whole application 
-                Application.Current.Properties["username"] = user[0].username;
-                Application.Current.Properties["password"] = user[0].password;
-                Application.Current.Properties["admin"] = user[0].admin;
+                Global.username = user[0].username;
+                Global.password = user[0].password;
+                Global.admin = Int32.Parse(user[0].admin);
 
                 log_status.TextColor = Color.Green;
                 log_status.Text = "Succesfull login!";
+
+                login_page.Children.Clear();
+
+                login_page.Children.Add(new Button { Text = "go to account", Command = new Command(() => Application.Current.MainPage = new AccountPage())});
             }
         }
 

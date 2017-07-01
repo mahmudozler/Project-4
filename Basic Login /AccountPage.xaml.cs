@@ -10,16 +10,14 @@ namespace SQLform
         public AccountPage()
         {
 			InitializeComponent();
-			if ((string)Application.Current.Properties["status"] == "logged_in")
+
+            if (Global.status == "logged_in")
 			{
-				var username = Application.Current.Properties["username"].ToString();
-				var password = Application.Current.Properties["password"].ToString();
-				var admin = Application.Current.Properties["admin"].ToString();
 
 				InitializeComponent();
-				user.Text = "user: " + username;
-				pass.Text = "password: " + password;
-				ad.Text = "admin: " + admin;
+				user.Text = "user: " + Global.username;
+				pass.Text = "password: " + Global.password;
+				ad.Text = "admin: " + Global.admin;
 			}
 			else
 			{
