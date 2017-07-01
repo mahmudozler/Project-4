@@ -47,6 +47,15 @@ namespace RecipeWPFApp
             }
         }
 
+        private void Browse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.Navigate(new BrowsePage());
+            while (Main.CanGoBack)
+            {
+                Main.RemoveBackEntry();
+            }
+        }
+
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (Main.CanGoBack)
