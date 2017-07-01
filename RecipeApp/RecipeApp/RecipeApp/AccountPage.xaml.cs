@@ -18,6 +18,7 @@ namespace RecipeApp
         Entry log_name = new Entry { Placeholder = "Fill in username" };
         Entry log_pass = new Entry { Placeholder = "Fill in password",IsPassword=true };
         Button login_press = new Button{ Text = "login" };
+        Button logout_press = new Button { Text = "logout" };
         Label login_response = new Label { };
 
 		public AccountPage ()
@@ -25,29 +26,13 @@ namespace RecipeApp
 			InitializeComponent ();
             if (Global.status == "logged_in")
             {
-                // showing account details of logged in user 
-                accountpage.Children.Clear();
-				accountpage.Children.Add(new Label { Text = "Your account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
-				accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
-				accountpage.Children.Add(new Label { Text = "Username: " + Global.username });
-                accountpage.Children.Add(new Label { Text ="Account type: " + Global.admin.ToString() });
-				accountpage.Children.Add(new Button { Text = "logout" });
+                //initialise account page when user logs in
+                init_accountpage();
             }
             else if(Global.status == "logged_out") 
             {
-                // Show login form to log in 
-				accountpage.Children.Clear();
-				accountpage.Children.Add(new Label { Text = "Manage account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
-				accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
-
-                accountpage.Children.Add(new Label { Text = "Username", TextColor = Color.FromHex("#2b2b2b"),Margin = new Thickness(5, 0, 0, 0),FontSize = 17 });
-                accountpage.Children.Add(log_name);
-                accountpage.Children.Add(new Label { Text = "Password", TextColor = Color.FromHex("#2b2b2b"), Margin = new Thickness(5, 0, 0, 0), FontSize = 17 });
-                accountpage.Children.Add(log_pass);
-
-                accountpage.Children.Add(login_press);
-                login_press.Command = new Command(getUser);
-				accountpage.Children.Add(login_response);
+                //initialise loginform
+                init_loginform();
             }
         }
 
@@ -80,10 +65,48 @@ namespace RecipeApp
                 Navigation.InsertPageBefore(new AccountPage(), this);
                 await Navigation.PopAsync();
 
-				//loginpage.Children.Clear();
-                //loginpage.Children.Add(new Label { Text = "logedin " });
-				//login_page.Children.Add(new Button { Text = "go to account", Command = new Command(() => Application.Current.MainPage = new AccountPage()) });
 			}
 		}
+
+        private void logout() {
+            // set status to logged out 
+            Global.status = "logged_out";
+
+            // unset the logged in user data
+            Global.username = default(string);
+            Global.password = default(string);
+            Global.admin = default(int);
+
+            // initialise login form again 
+            init_loginform();
+        }
+
+        private void init_loginform() {
+			// Show login form to log in 
+			accountpage.Children.Clear();
+			accountpage.Children.Add(new Label { Text = "Manage account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
+			accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
+
+			accountpage.Children.Add(new Label { Text = "Username", TextColor = Color.FromHex("#2b2b2b"), Margin = new Thickness(5, 0, 0, 0), FontSize = 17 });
+			accountpage.Children.Add(log_name);
+			accountpage.Children.Add(new Label { Text = "Password", TextColor = Color.FromHex("#2b2b2b"), Margin = new Thickness(5, 0, 0, 0), FontSize = 17 });
+			accountpage.Children.Add(log_pass);
+
+			accountpage.Children.Add(login_press);
+			login_press.Command = new Command(getUser);
+			accountpage.Children.Add(login_response);
+        }
+
+        private void init_accountpage() {
+			// showing account details of logged in user 
+			accountpage.Children.Clear();
+			accountpage.Children.Add(new Label { Text = "Your account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
+			accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
+			accountpage.Children.Add(new Label { Text = "Username: " + Global.username });
+			accountpage.Children.Add(new Label { Text = "Account type: " + Global.admin.ToString() });
+            accountpage.Children.Add(logout_press);
+            logout_press.Command = new Command(logout);
+
+        }
     }
 }
