@@ -15,7 +15,8 @@
                 <Label Text="Confirm password" FontSize="17" TextColor="#2b2b2b" Margin="5,0,0,0" />
             <Entry Placeholder="Fill in password" IsPassword="true" x:Name="PasswordInput2" TextChanged ="Password2_TextChanged" />
 
-                <Button Text="Register"/>
+                <Button x:Name="press_register" Text="Register"/>
+            <Label x:Name="register_status" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

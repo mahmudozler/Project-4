@@ -174,4 +174,9 @@ namespace RecipeApp
 		public string password { get; set; }
 		public string admin { get; set; }
 	}
+
+	public class RegisterResponse
+	{
+		public bool response { get; set; }
+	}
 }
