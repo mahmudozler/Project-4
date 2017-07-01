@@ -6,17 +6,7 @@
     
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="White" Padding="20, 10">
-                <Label Text="Manage Account" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
-                <BoxView Margin="0,0,0,20" BackgroundColor="LightGray" HeightRequest="1"/>
-
-                <Label Text="Username" FontSize="17" TextColor="#2b2b2b" Margin="5,0,0,0" />
-                <Entry Placeholder="Fill in username"/>
-
-                <Label Text="Password" FontSize="17" TextColor="#2b2b2b" Margin="5,0,0,0" />
-                <Entry IsPassword="true" Placeholder="Fill in password" />
-
-                <Button Text="Login"/>
+            <StackLayout x:Name="accountpage" BackgroundColor="White" Padding="20, 10">
                 
             </StackLayout>
         </ScrollView>

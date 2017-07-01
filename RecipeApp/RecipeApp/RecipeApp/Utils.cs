@@ -167,4 +167,11 @@ namespace RecipeApp
 		public string Imagelink { get; set; }
 		public object Valid { get; set; }
     }
+
+	public class User
+	{
+		public string username { get; set; }
+		public string password { get; set; }
+		public string admin { get; set; }
+	}
 }
