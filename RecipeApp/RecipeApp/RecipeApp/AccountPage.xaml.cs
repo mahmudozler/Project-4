@@ -14,9 +14,41 @@ namespace RecipeApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AccountPage : ContentPage
 	{
+        // login references & initiation to be accesed later 
+        Entry log_name = new Entry { Placeholder = "Fill in username" };
+        Entry log_pass = new Entry { Placeholder = "Fill in password",IsPassword=true };
+        Button login_press = new Button{ Text = "login" };
+        Label login_response = new Label { };
+
 		public AccountPage ()
 		{
 			InitializeComponent ();
+            if (Global.status == "logged_in")
+            {
+                // showing account details of logged in user 
+                accountpage.Children.Clear();
+				accountpage.Children.Add(new Label { Text = "Your account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
+				accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
+				accountpage.Children.Add(new Label { Text = "Username: " + Global.username });
+                accountpage.Children.Add(new Label { Text ="Account type: " + Global.admin.ToString() });
+				accountpage.Children.Add(new Button { Text = "logout" });
+            }
+            else if(Global.status == "logged_out") 
+            {
+                // Show login form to log in 
+				accountpage.Children.Clear();
+				accountpage.Children.Add(new Label { Text = "Manage account", FontAttributes = FontAttributes.Bold, FontSize = 25, HorizontalTextAlignment = TextAlignment.Center });
+				accountpage.Children.Add(new BoxView { Margin = new Thickness(0, 0, 0, 20), HeightRequest = 1, BackgroundColor = Color.LightGray });
+
+                accountpage.Children.Add(new Label { Text = "Username", TextColor = Color.FromHex("#2b2b2b"),Margin = new Thickness(5, 0, 0, 0),FontSize = 17 });
+                accountpage.Children.Add(log_name);
+                accountpage.Children.Add(new Label { Text = "Password", TextColor = Color.FromHex("#2b2b2b"), Margin = new Thickness(5, 0, 0, 0), FontSize = 17 });
+                accountpage.Children.Add(log_pass);
+
+                accountpage.Children.Add(login_press);
+                login_press.Command = new Command(getUser);
+				accountpage.Children.Add(login_response);
+            }
         }
 
         //Validate login attempt
@@ -45,8 +77,11 @@ namespace RecipeApp
 				login_response.TextColor = Color.Green;
 				login_response.Text = "Succesfull login!";
 
-				//login_page.Children.Clear();
+                Navigation.InsertPageBefore(new AccountPage(), this);
+                await Navigation.PopAsync();
 
+				//loginpage.Children.Clear();
+                //loginpage.Children.Add(new Label { Text = "logedin " });
 				//login_page.Children.Add(new Button { Text = "go to account", Command = new Command(() => Application.Current.MainPage = new AccountPage()) });
 			}
 		}
