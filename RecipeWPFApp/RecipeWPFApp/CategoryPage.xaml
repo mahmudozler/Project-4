@@ -8,21 +8,16 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="Category">
 
-    <Border>
+    <Border Padding="200, 0">
         <StackPanel>
+            <TextBlock Name="categoryName" Text="CATEGORY" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
+
             <Grid Name="grid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <StackPanel Name="column0" Grid.Column="0"/>
-                
-                <StackPanel Name="column1" Grid.Column="1"/>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
             </Grid>
         </StackPanel>
     </Border>

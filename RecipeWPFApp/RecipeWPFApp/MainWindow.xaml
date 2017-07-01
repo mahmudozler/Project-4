@@ -20,14 +20,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Name="homeText" MouseDown="Home_MouseDown" Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Name="homeText" MouseLeftButtonDown="Home_MouseLeftButtonDown" Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="1" Fill="Pink" Margin="0, 5"/>
                 <TextBlock Name="browseText" Grid.Column="2" Text="BROWSE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
                 <TextBlock Name="accountText" Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <TextBlock Grid.Column="6" Text="FOOD PORN" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
             </Grid>
-            <Frame Name="Main" NavigationUIVisibility="Hidden"/>
+
+            <TextBlock Name="backButton" MouseLeftButtonDown="Back_MouseLeftButtonDown" Visibility="Collapsed" Text="BACK" FontSize="20" FontWeight="Bold" Foreground="White" Background="Red" TextAlignment="Right"/>
+            <Frame Name="Main" Navigated="Main_Navigated" NavigationUIVisibility="Hidden"/>
         </StackPanel>
     </ScrollViewer>
 </Window>

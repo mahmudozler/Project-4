@@ -28,7 +28,7 @@ namespace RecipeWPFApp
             InitializeComponent();
         }
 
-        private async void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private async void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var response = await getData();
             var featuredItem = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
@@ -39,20 +39,16 @@ namespace RecipeWPFApp
             }
         }
 
-        private void Category_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Category_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var categoryObject = (Image)sender;
             this.NavigationService.Navigate(new CategoryPage(categoryObject.Uid));
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.RemoveBackEntry();
-            }
         }
 
         private async Task<String> getData()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.esy.es/recipe.php?id=23");
+            var response = await client.GetStringAsync("http://infpr04.esy.es/recipe.php?id=10");
             return response;
         }
     }

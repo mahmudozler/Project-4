@@ -26,12 +26,32 @@ namespace RecipeWPFApp
             Main.Navigate(new MainPage());
         }
 
-        private void Home_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Main_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if (Main.CanGoBack && e.Content.ToString() != "RecipeWPFApp.MainPage")
+            {
+                backButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                backButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Home_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Main.Navigate(new MainPage());
-            if (Main.CanGoBack)
+            while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();
+            }
+        }
+
+        private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Main.CanGoBack)
+            {
+                Main.GoBack();
             }
         }
     }
