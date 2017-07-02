@@ -2,21 +2,22 @@ HOW TO USE DATABASE API
 
 examples down below.
 
-infpr04.esy.es/recipe.php
-infpr04.esy.es/recipe.php?id=5
+infpr04.heliohost.org/recipe.php
+infpr04.heliohost.org/recipe.php?id=5
 
-infpr04.esy.es/login.php?user=user&pass=pass
+infpr04.heliohost.org/login.php?user=user&pass=pass
 
-infpr04.esy.es/register.php?user=bob&pass=water
+infpr04.heliohost.org/register.php?user=bob&pass=water
 
-infpr04.esy.es/search.php?input=pizza
-infpr04.esy.es/search.php?input=chicken&category=pizza
-infpr04.esy.es/search.php?input=&category=pizza                 //<-- category search only
+infpr04.heliohost.org/search.php?input=pizza
+infpr04.heliohost.org/search.php?input=chicken&category=pizza
+infpr04.heliohost.org/search.php?input=&category=pizza         //<-- category search only
 
-infpr04.esy.es/bookmark.php?user=user&add=5    //adds recept index 5
-infpr04.esy.es/bookmark.php?user=user&remove=5    //removes recept index 5
-infpr04.esy.es/bookmark.php?user=admin    //get data of specific user
+infpr04.heliohost.org/bookmark.php?user=user&add=5       //adds recept index 5
+infpr04.heliohost.org/bookmark.php?user=user&remove=5    //removes recept index 5
+infpr04.heliohost.org/bookmark.php?user=admin            //get data of specific user
 
-infpr04.esy.es/rate.php?user=user&add=20&val=10 //adds rating to recipe number 20 (ratings between 0 and 10)
-infpr04.esy.es/rate.php?user=user&remove=20 	//removes rating of recipe number 20
-infpr04.esy.es/rate.php?user=user 		//returns ratings of specific user
+infpr04.heliohost.org/rate.php?user=user&add=20&val=10  //adds rating to recipe number 20 (ratings between 0 and 10)
+infpr04.heliohost.org/rate.php?user=user&remove=20 	    //removes rating of recipe number 20
+infpr04.heliohost.org/rate.php?user=user 		        //returns ratings of specific user
+infpr04.heliohost.org/rate.php?recipe=5 		        //returns average rating of recipe
