@@ -33,7 +33,7 @@ namespace RecipeApp
 		public async Task<String> getData()
 		{
 			HttpClient client = new HttpClient();
-			var response = await client.GetStringAsync("http://infpr04.esy.es/recipe.php?id=23");
+			var response = await client.GetStringAsync("http://infpr04.heliohost.org/recipe.php?id=23");
 			return response;
 		}
     }

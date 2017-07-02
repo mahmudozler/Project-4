@@ -119,7 +119,7 @@ namespace RecipeApp
         private async Task<String> getData(string str)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?" + str);
+            var response = await client.GetStringAsync("http://infpr04.heliohost.org/search.php?" + str);
             return response;
         }
     }

@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{85455386-00E5-4A0F-B442-63118CCC4DC2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp.Android/obj/Debug/RecipeApp.Droid.RegisterPage.xaml.g.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeApp/MainPage.xaml.cs">
     <Files>
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml" Line="49" Column="15" />
-      <File FileName="RecipeApp/RecipeApp/BrowsePage.xaml.cs" Line="32" Column="40" />
-      <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="30" Column="13" />
+      <File FileName="RecipeApp/RecipeApp/MainPage.xaml.cs" Line="36" Column="55" />
       <File FileName="RecipeApp/RecipeApp/MainPage.xaml" Line="87" Column="1" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml" Line="44" Column="15" />
       <File FileName="RecipeApp/RecipeApp/MainRecipePage.xaml.cs" Line="1" Column="1" />
@@ -14,12 +12,11 @@
       <File FileName="RecipeApp/RecipeApp/MasterDetail.xaml" Line="30" Column="20" />
       <File FileName="RecipeApp/RecipeApp/App.xaml.cs" Line="14" Column="13" />
       <File FileName="RecipeApp/RecipeApp.Android/obj/Debug/RecipeApp.Droid.MainPage.xaml.g.cs" Line="22" Column="1" />
-      <File FileName="RecipeApp/RecipeApp/AccountPage.xaml" Line="10" Column="17" />
-      <File FileName="RecipeApp/RecipeApp/RegisterPage.xaml" Line="18" Column="52" />
+      <File FileName="RecipeApp/RecipeApp/AccountPage.xaml" Line="14" Column="15" />
+      <File FileName="RecipeApp/RecipeApp/RegisterPage.xaml" Line="24" Column="1" />
       <File FileName="RecipeApp/RecipeApp/RegisterPage.xaml.cs" Line="42" Column="43" />
       <File FileName="RecipeApp/RecipeApp/AccountPage.xaml.cs" Line="35" Column="34" />
       <File FileName="RecipeApp/RecipeApp/GlobalData.cs" Line="7" Column="14" />
-      <File FileName="RecipeApp/RecipeApp.Android/obj/Debug/RecipeApp.Droid.RegisterPage.xaml.g.cs" Line="31" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -28,6 +25,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.RecipeApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.EB45DB9D-4F64-470B-80F4-CC45ED3550FE" />
-  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.SMARTPHONE" />
+  <MonoDevelop.Ide.ItemProperties.RecipeApp.Android PreferredExecutionTarget="Android.Nexus_7" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -44,10 +44,10 @@ namespace RecipeApp
 
 
             //check if user is in db
-            var user_search = await client.GetStringAsync("http://infpr04.esy.es/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+            var user_search = await client.GetStringAsync("http://infpr04.heliohost.org/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
             var search_result = JsonConvert.DeserializeObject<System.Collections.Generic.List<RegisterResponse>>(user_search);
             if (search_result.Count == 0) {
-				await client.GetAsync("http://infpr04.esy.es/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+				await client.GetAsync("http://infpr04.heliohost.org/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
 				//response = response.Substring(1, response.Length - 2); //remove array brackets, because just 1 value
 				//var register_response = JsonConvert.DeserializeObject<RegisterResponse>(response);
 				register_status.TextColor = Color.Green;
