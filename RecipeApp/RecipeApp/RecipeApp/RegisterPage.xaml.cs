@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -47,7 +47,7 @@ namespace RecipeApp
             var user_search = await client.GetStringAsync("http://infpr04.heliohost.org/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
             var search_result = JsonConvert.DeserializeObject<System.Collections.Generic.List<RegisterResponse>>(user_search);
             if (search_result.Count == 0) { //if chosen name not in db already, register new account
-				await client.GetAsync("http://infpr04.esy.es/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+				await client.GetAsync("http://infpr04.heliohost.org/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
 				register_status.TextColor = Color.Green;
 				register_status.Text = "succesfully registered, you can login now";
             }
