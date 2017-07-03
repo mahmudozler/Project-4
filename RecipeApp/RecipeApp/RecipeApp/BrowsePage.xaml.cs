@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using Xamarin.Forms;
+﻿﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -119,7 +119,7 @@ namespace RecipeApp
         private async Task<String> getData(string str)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://145.24.222.221/search.php?" + str);
+            var response = await client.GetStringAsync("145.24.222.221/search.php?" + str);
             return response;
         }
     }
