@@ -37,9 +37,12 @@ namespace RecipeApp
 
             // Bookmarkbutton if a user is logged in
             bookmark_button.Command = new Command(() => add_bookmark(recipe)); //set click action
+
             if(Global.status == "logged_out") {
                 recipe_page.Children.Remove(bookmark_button);
             }
+
+            IfBookmarked(recipe);
         }
 
         public static float Chance(Recipe current, Recipe recipe)
@@ -196,10 +199,7 @@ namespace RecipeApp
         private async void add_bookmark(Recipe recipe) {
             //Generate list with ids of all bookmarks
             HttpClient client = new HttpClient();
-            var bookmark_list = await Bookmark_check(client);
-            var bookmark_id_list = new System.Collections.Generic.List<string>();
-            foreach (var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recept); }
-
+            var bookmark_id_list = await Bookmark_check();
 
             if (bookmark_id_list.Contains(recipe.ID) == false) 
             {
@@ -211,18 +211,30 @@ namespace RecipeApp
             else 
             {
                 // Remove bookmark and add bookmark button
-                bookmark_button.Text = "Testtt";
                 var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
                 bookmark_button.Text = "Bookmark this Recipe";
                 bookmark_button.BackgroundColor = Color.FromHex("#e04021");
             }
         }
 
-        private async Task<System.Collections.Generic.List<BookmarkItem>> Bookmark_check(HttpClient client) {
+        private async Task<System.Collections.Generic.List<string>> Bookmark_check() {
+            HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username);
             var bookmark_list = JsonConvert.DeserializeObject<System.Collections.Generic.List<BookmarkItem>>(response);
-            return bookmark_list;
+			var bookmark_id_list = new System.Collections.Generic.List<string>();
+			foreach (var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recept); }
+            return bookmark_id_list;
 		}
+
+        private async void IfBookmarked(Recipe recipe)
+        {
+            var bookmark_id_list = await Bookmark_check();
+            if(bookmark_id_list.Contains(recipe.ID)) {
+				//if recipe laready bookmarked
+				bookmark_button.Text = "Remove Bookmark";
+				bookmark_button.BackgroundColor = Color.FromHex("#9E3636");
+            }
+        }
 
         public void recipe_clicked(Recipe recipe)
         {
