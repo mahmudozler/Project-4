@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,7 +64,7 @@ namespace RecipeApp
 
                 Navigation.InsertPageBefore(new AccountPage(), this);
                 await Navigation.PopAsync();
-
+                //new NavigationPage(CreateWindow.Create(3));
 			}
 		}
 
