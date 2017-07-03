@@ -148,14 +148,14 @@ namespace RecipeWPFApp
         private async Task<String> getData(string inputString)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.esy.es/search.php?" + inputString);
+            var response = await client.GetStringAsync("http://infpr04.heliohost.org/search.php?" + inputString);
             return response;
         }
 
         private async Task<String> getData(string id, bool isID)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.esy.es/recipe.php?id=" + id);
+            var response = await client.GetStringAsync("http://infpr04.heliohost.org/recipe.php?id=" + id);
             return response;
         }
 
