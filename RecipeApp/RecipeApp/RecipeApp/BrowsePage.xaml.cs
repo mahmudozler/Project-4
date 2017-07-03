@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using Xamarin.Forms;
+﻿﻿﻿﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -89,7 +89,7 @@ namespace RecipeApp
                 innergrid.RowDefinitions.Add(new RowDefinition { Height = 80});
 
 				grid.Children.Add(bview, 1, records.Current);
-                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);
+                innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => item.Title, () => ""), TextColor = Color.Red, FontAttributes = FontAttributes.Bold }, 0, 0);	
                 innergrid.Children.Add(new Label { Text = records.GetCurrent().Visit(item => (string)item.Beschrijving, () => ""), TextColor = Color.Black }, 0, 1);
                 grid.Children.Add(innergrid, 1, records.Current);
                 grid.Children.Add(image, 0, records.Current);

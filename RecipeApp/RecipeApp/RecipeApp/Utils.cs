@@ -183,6 +183,6 @@ namespace RecipeApp
 	public class BookmarkItem
 	{
 		public string username { get; set; }
-        public string recipe_id { get; set; }
+        public string recept { get; set; }
 	}
 }

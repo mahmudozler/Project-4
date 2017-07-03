@@ -1,4 +1,4 @@
-﻿using Xamarin.Forms;
+﻿﻿using Xamarin.Forms;
 using System;
 using System.Linq;
 using System.IO;
@@ -197,8 +197,9 @@ namespace RecipeApp
             //Generate list with ids of all bookmarks
             HttpClient client = new HttpClient();
             var bookmark_list = await Bookmark_check(client);
-            var bookmark_id_list = new List<string>();
-            foreach(var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recipe_id); }
+            var bookmark_id_list = new System.Collections.Generic.List<string>();
+            foreach (var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recept); }
+
 
             if (bookmark_id_list.Contains(recipe.ID) == false) 
             {
@@ -210,15 +211,16 @@ namespace RecipeApp
             else 
             {
                 // Remove bookmark and add bookmark button
+                bookmark_button.Text = "Testtt";
                 var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
                 bookmark_button.Text = "Bookmark this Recipe";
                 bookmark_button.BackgroundColor = Color.FromHex("#e04021");
             }
         }
 
-        private async Task<List<BookmarkItem>> Bookmark_check(HttpClient client) {
+        private async Task<System.Collections.Generic.List<BookmarkItem>> Bookmark_check(HttpClient client) {
             var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username);
-            var bookmark_list = JsonConvert.DeserializeObject<List<BookmarkItem>>(response);
+            var bookmark_list = JsonConvert.DeserializeObject<System.Collections.Generic.List<BookmarkItem>>(response);
             return bookmark_list;
 		}
 
