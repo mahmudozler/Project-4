@@ -34,6 +34,11 @@ namespace RecipeApp
                 }
                 recipe_ingredients.Children.Add(new Label { Text = IngredientList[x], TextColor = Color.Black });
             }
+
+            // Bookmarkbutton if a user is logged in
+            if(Global.status == "logged_out") {
+                recipe_page.Children.Remove(bookmark_button);
+            }
         }
 
         public static float Chance(Recipe current, Recipe recipe)
@@ -186,6 +191,10 @@ namespace RecipeApp
 
             return response;
         }
+
+        /*private async void add_bookmark() {
+            
+        }*/
 
         public void recipe_clicked(Recipe recipe)
         {
