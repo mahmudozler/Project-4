@@ -188,7 +188,7 @@ namespace RecipeApp
         public async Task<String> getData()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.heliohost.org/search.php?input=%category=all");
+            var response = await client.GetStringAsync("http://145.24.222.221/search.php?input=%category=all");
 
             return response;
         }
@@ -203,21 +203,21 @@ namespace RecipeApp
             if (bookmark_id_list.Contains(recipe.ID) == false) 
             {
 				// if recipe not bookmarked yet Add to bookmark 
-				var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username + "&add=" + recipe.ID);
+				var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&add=" + recipe.ID);
                 bookmark_button.Text = "Remove Bookmark";
                 bookmark_button.BackgroundColor = Color.FromHex("#9E3636");
             }
             else 
             {
                 // Remove bookmark and add bookmark button
-                var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
+                var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
                 bookmark_button.Text = "Bookmark this Recipe";
                 bookmark_button.BackgroundColor = Color.FromHex("#e04021");
             }
         }
 
         private async Task<List<BookmarkItem>> Bookmark_check(HttpClient client) {
-            var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username);
+            var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username);
             var bookmark_list = JsonConvert.DeserializeObject<List<BookmarkItem>>(response);
             return bookmark_list;
 		}

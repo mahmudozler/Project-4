@@ -40,7 +40,7 @@ namespace RecipeApp
 		private async void getUser()
 		{
 			var client = new HttpClient();
-			var data = await client.GetStringAsync("http://infpr04.heliohost.org/login.php?user=" + log_name.Text + "&pass=" + log_pass.Text);
+			var data = await client.GetStringAsync("http://145.24.222.221/login.php?user=" + log_name.Text + "&pass=" + log_pass.Text);
 			var user = JsonConvert.DeserializeObject<List<User>>(data);
 
 			//Check if valid login

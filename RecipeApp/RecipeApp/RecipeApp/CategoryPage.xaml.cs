@@ -68,7 +68,7 @@ namespace RecipeApp
         public async Task<String> getData(string category)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://infpr04.heliohost.org/search.php?input=&category=" + category);
+            var response = await client.GetStringAsync("http://145.24.222.221/search.php?input=&category=" + category);
             return response;
         }
 
