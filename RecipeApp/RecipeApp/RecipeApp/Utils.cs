@@ -179,4 +179,10 @@ namespace RecipeApp
 	{
 		public bool response { get; set; }
 	}
+
+	public class BookmarkItem
+	{
+		public string username { get; set; }
+        public string recipe_id { get; set; }
+	}
 }

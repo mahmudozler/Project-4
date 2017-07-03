@@ -36,6 +36,7 @@ namespace RecipeApp
             }
 
             // Bookmarkbutton if a user is logged in
+            bookmark_button.Command = new Command(() => add_bookmark(recipe)); //set click action
             if(Global.status == "logged_out") {
                 recipe_page.Children.Remove(bookmark_button);
             }
@@ -192,9 +193,34 @@ namespace RecipeApp
             return response;
         }
 
-        /*private async void add_bookmark() {
-            
-        }*/
+        private async void add_bookmark(Recipe recipe) {
+            //Generate list with ids of all bookmarks
+            HttpClient client = new HttpClient();
+            var bookmark_list = await Bookmark_check(client);
+            var bookmark_id_list = new List<string>();
+            foreach(var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recipe_id); }
+
+            if (bookmark_id_list.Contains(recipe.ID) == false) 
+            {
+				// if recipe not bookmarked yet Add to bookmark 
+				var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username + "&add=" + recipe.ID);
+                bookmark_button.Text = "Remove Bookmark";
+                bookmark_button.BackgroundColor = Color.FromHex("#9E3636");
+            }
+            else 
+            {
+                // Remove bookmark and add bookmark button
+                var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
+                bookmark_button.Text = "Bookmark this Recipe";
+                bookmark_button.BackgroundColor = Color.FromHex("#e04021");
+            }
+        }
+
+        private async Task<List<BookmarkItem>> Bookmark_check(HttpClient client) {
+            var response = await client.GetStringAsync("http://infpr04.heliohost.org/bookmark.php?user=" + Global.username);
+            var bookmark_list = JsonConvert.DeserializeObject<List<BookmarkItem>>(response);
+            return bookmark_list;
+		}
 
         public void recipe_clicked(Recipe recipe)
         {

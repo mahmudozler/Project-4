@@ -37,7 +37,7 @@
                             </Image.GestureRecognizers>
                         </Image>
                         <Label Text="Pizza" TextColor="Red" FontAttributes="Bold"/>
-                        <Image ClassId="Pizza" Source="http://pngimg.com/uploads/pizza/pizza_PNG7151.png" HeightRequest="100">
+                        <Image ClassId="Pizza" Source="http://pngimg.com/uploads/pizza/pizza_PNG7151.png?i=1" HeightRequest="100">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="Category_Tapped" NumberOfTapsRequired="1"/>
                             </Image.GestureRecognizers>
