@@ -51,10 +51,10 @@ namespace RecipeApp
             var client = new HttpClient();
 
             //check if user is in db
-            var user_search = await client.GetStringAsync("145.24.222.221/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+            var user_search = await client.GetStringAsync("http://145.24.222.221/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
             var search_result = JsonConvert.DeserializeObject<System.Collections.Generic.List<RegisterResponse>>(user_search);
             if (search_result.Count == 0) { //if chosen name not in db already, register new account
-				await client.GetAsync("145.24.222.221/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+				await client.GetAsync("http://145.24.222.221/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
 
 				// Action after succesfull registration
 				await register_form.FadeTo(0, 1000);
