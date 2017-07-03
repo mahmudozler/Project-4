@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace RecipeApp
         Entry log_name = new Entry { Placeholder = "Fill in username" };
         Entry log_pass = new Entry { Placeholder = "Fill in password",IsPassword=true };
         Button login_press = new Button{ Text = "login" };
-        Button logout_press = new Button { Text = "logout" };
+        Button logout_press = new Button { Text = "logout", Margin = new Thickness(0, 0, 0, 35) };
         Label login_response = new Label { };
 
 		public AccountPage ()
@@ -106,7 +106,46 @@ namespace RecipeApp
 			accountpage.Children.Add(new Label { Text = "Account type: " + Global.admin.ToString() });
             accountpage.Children.Add(logout_press);
             logout_press.Command = new Command(logout);
+            accountpage.Children.Add(new Label { Text = "Your bookmarks", TextColor = Color.FromHex("A81313"),FontSize=20,FontAttributes=FontAttributes.Bold,HorizontalTextAlignment = TextAlignment.Center });
+            var bookmarkline = new BoxView { Margin = new Thickness(0, 0, 0, 10), HeightRequest = 1, BackgroundColor = Color.LightGray };
+            accountpage.Children.Add(bookmarkline);
 
+            //show the user's bookmarks
+            SetUserBookmarks();
         }
+
+        private async Task<Recipe> getRecipeById(string ID) {
+            var client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/recipe.php?id=" + ID);
+            response = response.Substring(1, response.Length - 2);
+            var recipe = JsonConvert.DeserializeObject<Recipe>(response);
+            return recipe;
+        }
+
+        private async void SetUserBookmarks() {
+            var client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username);
+            var bookmarks_fetch = JsonConvert.DeserializeObject<List<BookmarkItem>>(response);
+            var list_bookmarks = new System.Collections.Generic.List<Recipe>();
+
+            // fetch recipe object from bookmarks id list
+            foreach (var recipe in bookmarks_fetch) {
+                var rec = await getRecipeById(recipe.recept);
+                list_bookmarks.Add(rec);
+            }
+
+            // set bookmarks recipe in list
+            if (list_bookmarks.Count > 0)
+            {
+                foreach (var recipe in list_bookmarks)
+                {
+                    accountpage.Children.Add(new Button { Text = recipe.Title, Margin = new Thickness(20, -5), Command = new Command(() => Navigation.PushAsync(new MainRecipePage(recipe))), BackgroundColor = Color.FromHex("BD3E3E"), TextColor = Color.White, FontAttributes = FontAttributes.Italic });
+                }
+            }
+            else 
+            {
+                accountpage.Children.Add(new Label { Text = "You have no bookmarks yet, go add some!" });
+            }
+		}
     }
 }
