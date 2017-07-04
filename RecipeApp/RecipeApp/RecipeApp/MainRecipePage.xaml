@@ -23,6 +23,12 @@
                 <Label Text="INSTRUCTIONS" TextColor="Red" FontAttributes="Bold" FontSize="20" Margin="0, 10, 0, 0"/>
                 <Label x:Name="recipe_instructions" TextColor="Black"/>
                 <Button x:Name="bookmark_button" Text="Bookmark this Recipe" BackgroundColor="#e04021" TextColor="#fff"/>
+
+                <StackLayout x:Name="rate_form">
+                    <Label Text="Rate this recipe" TextColor="Red" FontAttributes="Bold"/>
+                    <Entry x:Name="rating" Placeholder="Fill in a score between 1-10" WidthRequest="100"/>
+                    <Button x:Name="press_rate" Text="Rate"/>
+                </StackLayout>
                 
                 <Label Text="RECOMMENDED" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="0,30,0,0"/>
 

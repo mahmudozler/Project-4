@@ -42,7 +42,11 @@ namespace RecipeApp
                 recipe_page.Children.Remove(bookmark_button);
             }
 
+            // Change button depending on if recipe is bookmarked or not 
             IfBookmarked(recipe);
+
+            // set command of rate button 
+            press_rate.Command = new Command(() => insert_rating(recipe));
         }
 
         public static float Chance(Recipe current, Recipe recipe)
@@ -239,6 +243,13 @@ namespace RecipeApp
         public void recipe_clicked(Recipe recipe)
         {
             Navigation.PushAsync(new MainRecipePage(recipe));
+        }
+
+        private async void insert_rating(Recipe recipe) {
+            var client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user="+ Global.username +"&add="+ recipe.ID +"&val="+rating.Text);
+            rate_form.Children.Clear();
+            rate_form.Children.Add(new Label{ Text="you have succesfully rated this recipe"});
         }
     }
 }

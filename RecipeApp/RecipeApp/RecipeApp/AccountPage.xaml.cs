@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
@@ -139,7 +139,7 @@ namespace RecipeApp
             {
                 foreach (var recipe in list_bookmarks)
                 {
-                    accountpage.Children.Add(new Button { Text = recipe.Title, Margin = new Thickness(20, -5), Command = new Command(() => Navigation.PushAsync(new MainRecipePage(recipe))), BackgroundColor = Color.FromHex("BD3E3E"), TextColor = Color.White, FontAttributes = FontAttributes.Italic });
+                    accountpage.Children.Add(new Button { Text = recipe.Title, Margin = new Thickness(20, 0), Command = new Command(() => Navigation.PushAsync(new MainRecipePage(recipe))), BackgroundColor = Color.FromHex("BD3E3E"), TextColor = Color.White, FontAttributes = FontAttributes.Italic });
                 }
             }
             else 
