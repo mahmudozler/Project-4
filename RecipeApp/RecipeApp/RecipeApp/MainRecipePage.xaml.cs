@@ -293,7 +293,7 @@ namespace RecipeApp
                     {
                         rate_form_rating.IsEnabled = false;
                         rate_form_rating.Text = "You already rated";
-                        rate_form_resultlabel.Text = rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
+                        rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
                         rate_form_button.Text = "Remove Rating";
                         rate_form_button.Command = new Command(() => {remove_rating(recipe); });
                         break;
