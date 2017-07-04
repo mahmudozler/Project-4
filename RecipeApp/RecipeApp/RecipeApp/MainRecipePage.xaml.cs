@@ -39,14 +39,14 @@ namespace RecipeApp
             }
 
             // Bookmarkbutton if a user is logged in
-            bookmark_button.Command = new Command(() => add_bookmark(recipe)); //set click action
+            bookmark_button.Command = new Command(() => add_bookmark()); //set click action
 
             if(Global.status == "logged_out") {
                 recipe_page.Children.Remove(bookmark_button);
             }
 
             // Change button depending on if recipe is bookmarked or not 
-            IfBookmarked(recipe);
+            IfBookmarked();
 
             // set command of rate button 
             init_rate_form();
@@ -203,7 +203,7 @@ namespace RecipeApp
             return response;
         }
 
-        private async void add_bookmark(Recipe recipe) {
+        private async void add_bookmark() {
             //Generate list with ids of all bookmarks
             HttpClient client = new HttpClient();
             var bookmark_id_list = await Bookmark_check();
@@ -233,7 +233,7 @@ namespace RecipeApp
             return bookmark_id_list;
 		}
 
-        private async void IfBookmarked(Recipe recipe)
+        private async void IfBookmarked()
         {
             var bookmark_id_list = await Bookmark_check();
             if(bookmark_id_list.Contains(recipe.ID)) {
@@ -248,7 +248,7 @@ namespace RecipeApp
             Navigation.PushAsync(new MainRecipePage(recipe));
         }
 
-        private async void insert_rating(Recipe recipe) {
+        private async void insert_rating() {
             try
             {
 				if(Convert.ToInt16(rate_form_rating.Text) <= 10 && Convert.ToInt16(rate_form_rating.Text) > 0)
@@ -267,7 +267,7 @@ namespace RecipeApp
         }
 
 
-		private async void remove_rating(Recipe recipe)
+		private async void remove_rating()
 		{
 			var client = new HttpClient();
             var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username + "&remove=" + recipe.ID + "&val=" + rate_form_rating.Text);
@@ -287,25 +287,38 @@ namespace RecipeApp
             {
                 var userrating = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username);
                 var userratinglist = JsonConvert.DeserializeObject<System.Collections.Generic.List<UserRating>>(userrating);
-                foreach(UserRating ur in userratinglist)
+
+                if (userratinglist.Count > 0)
                 {
-                    if (ur.recept == recipe.ID)
+                    bool Isset = false;
+                    foreach(UserRating ur in userratinglist)
                     {
-                        rate_form_rating.IsEnabled = false;
-                        rate_form_rating.Text = "You already rated";
-                        rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
-                        rate_form_button.Text = "Remove Rating";
-                        rate_form_button.Command = new Command(() => {remove_rating(recipe); });
-                        break;
+						if (ur.recept == recipe.ID)
+						{
+                            Isset = true;
+							rate_form_rating.IsEnabled = false;
+							rate_form_rating.Text = "You already rated";
+							rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
+							rate_form_button.Text = "Remove Rating";
+							rate_form_button.Command = new Command(() => {remove_rating(); });
+							break;
+						}
                     }
-                    else
+                    if(!Isset)
                     {
 						rate_form_rating.IsEnabled = true;
-                        rate_form_rating.Text = "Fill in a score between 1-10";
-						rate_form_button.Command = new Command(() => { insert_rating(recipe); });
-						rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";
+						rate_form_rating.Text = "Fill in a score between 1-10";
+						rate_form_button.Command = new Command(() => { insert_rating(); });
+						rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";                  
                     }
                 }
+				else
+				{
+					rate_form_rating.IsEnabled = true;
+					rate_form_rating.Text = "Fill in a score between 1-10";
+					rate_form_button.Command = new Command(() => { insert_rating(); });
+					rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";
+				}
             }
             else
             {
