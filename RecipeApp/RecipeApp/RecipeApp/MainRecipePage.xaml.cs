@@ -246,10 +246,20 @@ namespace RecipeApp
         }
 
         private async void insert_rating(Recipe recipe) {
-            var client = new HttpClient();
-            var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user="+ Global.username +"&add="+ recipe.ID +"&val="+rating.Text);
-            rate_form.Children.Clear();
-            rate_form.Children.Add(new Label{ Text="you have succesfully rated this recipe"});
+            if(Convert.ToInt16(rating.Text) <= 10 && Convert.ToInt16(rating.Text) > 0)
+            {
+				var client = new HttpClient();
+				var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user="+ Global.username +"&add="+ recipe.ID +"&val="+rating.Text);
+                var average = await client.GetStringAsync("http://145.24.222.221/rate.php?recipe=" + recipe.ID);
+                var averagejson = JsonConvert.DeserializeObject<System.Collections.Generic.List<Average>>(average);
+                if (averagejson[0].beoordeling != null) { rating_label.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + rating.Text; }
+                else rating_label.Text = "Average: not yet rated\nYour Rating: " + rating.Text;
+			}
+            else
+            {
+                rating_label.Text = "Invalid Rating";
+            }
         }
+
     }
 }

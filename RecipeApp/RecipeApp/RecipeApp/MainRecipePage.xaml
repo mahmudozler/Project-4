@@ -26,8 +26,9 @@
 
                 <StackLayout x:Name="rate_form">
                     <Label Text="Rate this recipe" TextColor="Red" FontAttributes="Bold"/>
-                    <Entry x:Name="rating" Placeholder="Fill in a score between 1-10" WidthRequest="100"/>
+                    <Entry x:Name="rating" Keyboard="Numeric" Placeholder="Fill in a score between 1-10" WidthRequest="100"/>
                     <Button x:Name="press_rate" Text="Rate"/>
+                    <Label x:Name="rating_label"/>
                 </StackLayout>
                 
                 <Label Text="RECOMMENDED" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="0,30,0,0"/>

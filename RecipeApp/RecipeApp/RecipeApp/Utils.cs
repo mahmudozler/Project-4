@@ -185,4 +185,8 @@ namespace RecipeApp
 		public string username { get; set; }
         public string recept { get; set; }
 	}
+	public class Average
+	{
+		public string beoordeling { get; set; }
+	}
 }
