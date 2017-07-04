@@ -189,4 +189,10 @@ namespace RecipeApp
 	{
 		public string beoordeling { get; set; }
 	}
+	public class UserRating
+	{
+		public string beoordeling { get; set; }
+        public string recept { get; set; }
+        public string username { get; set; }
+	}
 }

@@ -14,8 +14,11 @@ namespace RecipeApp
 {
     public partial class MainRecipePage : ContentPage
     {
+        public Recipe recipe;
+
         public MainRecipePage(Recipe recipe)
         {
+            this.recipe = recipe;
             InitializeRecipes(recipe);
             InitializeComponent();
 
@@ -46,7 +49,7 @@ namespace RecipeApp
             IfBookmarked(recipe);
 
             // set command of rate button 
-            press_rate.Command = new Command(() => insert_rating(recipe));
+            init_rate_form();
         }
 
         public static float Chance(Recipe current, Recipe recipe)
@@ -246,18 +249,71 @@ namespace RecipeApp
         }
 
         private async void insert_rating(Recipe recipe) {
-            if(Convert.ToInt16(rating.Text) <= 10 && Convert.ToInt16(rating.Text) > 0)
+            try
             {
-				var client = new HttpClient();
-				var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user="+ Global.username +"&add="+ recipe.ID +"&val="+rating.Text);
-                var average = await client.GetStringAsync("http://145.24.222.221/rate.php?recipe=" + recipe.ID);
-                var averagejson = JsonConvert.DeserializeObject<System.Collections.Generic.List<Average>>(average);
-                if (averagejson[0].beoordeling != null) { rating_label.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + rating.Text; }
-                else rating_label.Text = "Average: not yet rated\nYour Rating: " + rating.Text;
-			}
+				if(Convert.ToInt16(rate_form_rating.Text) <= 10 && Convert.ToInt16(rate_form_rating.Text) > 0)
+				{
+					var client = new HttpClient();
+					var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user="+ Global.username +"&add="+ recipe.ID +"&val="+rate_form_rating.Text);
+					this.init_rate_form();
+				}
+				else
+				{
+					rate_form_resultlabel.Text = "Invalid Rating";
+					
+				}     
+            }
+            catch {await DisplayAlert("Error", "Wrong input most likely", "Cancel");}
+        }
+
+
+		private async void remove_rating(Recipe recipe)
+		{
+			var client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username + "&remove=" + recipe.ID + "&val=" + rate_form_rating.Text);
+            this.rate_form_button.Text = "Rate";
+            this.init_rate_form();
+		}
+
+        private async void init_rate_form()
+        {
+            var client = new HttpClient();
+
+			var average = await client.GetStringAsync("http://145.24.222.221/rate.php?recipe=" + recipe.ID);
+			var averagejson = JsonConvert.DeserializeObject<System.Collections.Generic.List<Average>>(average);
+
+
+            if(Global.status == "logged_in")
+            {
+                var userrating = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username);
+                var userratinglist = JsonConvert.DeserializeObject<System.Collections.Generic.List<UserRating>>(userrating);
+                foreach(UserRating ur in userratinglist)
+                {
+                    if (ur.recept == recipe.ID)
+                    {
+                        rate_form_rating.IsEnabled = false;
+                        rate_form_rating.Text = "You already rated";
+                        rate_form_resultlabel.Text = rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
+                        rate_form_button.Text = "Remove Rating";
+                        rate_form_button.Command = new Command(() => {remove_rating(recipe); });
+                        break;
+                    }
+                    else
+                    {
+						rate_form_rating.IsEnabled = true;
+                        rate_form_rating.Text = "Fill in a score between 1-10";
+						rate_form_button.Command = new Command(() => { insert_rating(recipe); });
+						rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";
+                    }
+                }
+            }
             else
             {
-                rating_label.Text = "Invalid Rating";
+
+                rate_form_rating.IsEnabled = false;
+                rate_form_rating.Text = "Log in to rate";
+                rate_form_button.Command = new Command(async () => {await DisplayAlert("Error","You're not logged in yet", "Cancel");});
+				rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: log in to rate";
             }
         }
 
