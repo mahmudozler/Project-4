@@ -1,0 +1,39 @@
+﻿<Window x:Class="RecipeWPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecipeWPFApp"
+        mc:Ignorable="d"
+        Title="Food Porn" Height="720" Width="1280">
+
+    <ScrollViewer>
+        <StackPanel>
+            <Grid Background="Red">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock MouseLeftButtonDown="Home_MouseLeftButtonDown" Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <Rectangle Grid.Column="1" Fill="Pink" Margin="0, 5"/>
+                <TextBlock MouseLeftButtonDown="Browse_MouseLeftButtonDown" Grid.Column="2" Text="BROWSE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
+                <TextBlock MouseLeftButtonDown="Account_MouseLeftButtonDown" Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
+                <TextBlock MouseLeftButtonDown="Register_MouseLeftButtonDown" Grid.Column="6" Text="REGISTER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Grid.Column="8" Text="FOOD PORN" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
+            </Grid>
+
+            <TextBlock Name="backButton" MouseLeftButtonDown="Back_MouseLeftButtonDown" Visibility="Collapsed" Text="BACK" FontSize="20" FontWeight="Bold" Foreground="White" Background="Red" TextAlignment="Right"/>
+            <Frame Name="Main" Navigated="Main_Navigated" NavigationUIVisibility="Hidden"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

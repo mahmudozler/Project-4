@@ -1,0 +1,38 @@
+﻿<Page x:Class="RecipeWPFApp.MainRecipePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RecipeWPFApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Featured">
+
+    <Border Padding="200, 0">
+        <StackPanel>
+            <TextBlock Name="recipeName" Text="MAIN RECIPE" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
+            <Image Name="recipeImage" Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3zohGxG6qIgXm_bKEq6zGLKm6pOkDc4zehRnNUha4XixPBLD7" Height="200"/>
+
+            <Rectangle Height="1" Fill="Pink" Margin="50, 10"/>
+
+            <StackPanel>
+                <TextBlock Margin="0, 10, 0, 0" Text="Ingredients" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+                <StackPanel Name="recipeIngredients"/>
+                
+                <TextBlock Margin="0, 10, 0, 0" Text="Instructions" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+                <TextBlock Name="recipeInstructions" TextWrapping="Wrap" Text="Step 1: " FontSize="15"/>
+                
+                <TextBlock Margin="0, 10, 0, 0" Text="Recommended" FontSize="20" FontWeight="Bold"/>
+                <Rectangle Height="1" Fill="LightGray"/>
+                
+                <Grid Name="grid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Page>
