@@ -1,4 +1,4 @@
-﻿<Page x:Class="RecipeWPFApp.AccountPage"
+﻿<Page x:Class="RecipeWPFApp.RegisterPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:RecipeWPFApp"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
-      Title="Account">
+      Title="Register">
 
     <Border Padding="200, 0">
         <StackPanel>
-            <TextBlock Text="Account" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
+            <TextBlock Text="Register" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
 
             <Rectangle Height="1" Fill="Pink" Margin="50, 10"/>
         </StackPanel>

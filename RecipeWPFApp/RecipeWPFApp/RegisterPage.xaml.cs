@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RecipeWPFApp
 {
     /// <summary>
-    /// Interaction logic for AccountPage.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class AccountPage : Page
+    public partial class RegisterPage : Page
     {
-        public AccountPage()
+        public RegisterPage()
         {
             InitializeComponent();
         }

@@ -28,7 +28,7 @@ namespace RecipeWPFApp
 
         private void Main_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            if (Main.CanGoBack && e.Content.ToString() != "RecipeWPFApp.MainPage")
+            if (Main.CanGoBack && e.Content.ToString() != "RecipeWPFApp.MainPage" && e.Content.ToString() != "RecipeWPFApp.BrowsePage" && e.Content.ToString() != "RecipeWPFApp.AccountPage" && e.Content.ToString() != "RecipeWPFApp.RegisterPage")
             {
                 backButton.Visibility = Visibility.Visible;
             }
@@ -50,6 +50,24 @@ namespace RecipeWPFApp
         private void Browse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Main.Navigate(new BrowsePage());
+            while (Main.CanGoBack)
+            {
+                Main.RemoveBackEntry();
+            }
+        }
+
+        private void Account_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.Navigate(new AccountPage());
+            while (Main.CanGoBack)
+            {
+                Main.RemoveBackEntry();
+            }
+        }
+
+        private void Register_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.Navigate(new RegisterPage());
             while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();

@@ -66,3 +66,7 @@ C:\Users\Mahmut Ozler\Desktop\github\project-4-app\RecipeWPFApp\RecipeWPFApp\obj
 C:\Users\Mahmut Ozler\Desktop\github\project-4-app\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.csproj.GenerateResource.Cache
 C:\Users\Mahmut Ozler\Desktop\github\project-4-app\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.exe
 C:\Users\Mahmut Ozler\Desktop\github\project-4-app\RecipeWPFApp\RecipeWPFApp\obj\Debug\RecipeWPFApp.pdb
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\AccountPage.g.cs
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RegisterPage.g.cs
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\AccountPage.baml
+C:\Users\eh156\Desktop\Project-4\RecipeWPFApp\RecipeWPFApp\obj\Debug\RegisterPage.baml
