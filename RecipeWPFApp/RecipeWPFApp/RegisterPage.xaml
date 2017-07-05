@@ -13,6 +13,19 @@
             <TextBlock Text="Register" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
 
             <Rectangle Height="1" Fill="Pink" Margin="50, 10"/>
+
+            <TextBlock Text="Choose username" FontSize="17" Foreground="DarkGray" Margin="5 0 0 0"/>
+            <TextBox Name="EntryInput" Margin="0 0 400 0"/>
+
+            <TextBlock Text="Pick a password" FontSize="17" Foreground="DarkGray" Margin="5 0 0 0"/>
+            <PasswordBox Name="PasswordInput1" Margin="0 0 400 0"/>
+
+            <TextBlock Text="Confirm password" FontSize="17" Foreground="DarkGray" Margin="5 0 0 0"/>
+            <PasswordBox Name="PasswordInput2" Margin="0 0 400 0"/>
+
+            <Button Name="press_register" Content="Register" Margin="0 25 400 0"/>
+
+            <TextBlock Name="register_status"/>
         </StackPanel>
     </Border>
 </Page>

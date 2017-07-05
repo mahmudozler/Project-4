@@ -24,7 +24,7 @@ namespace RecipeWPFApp
     {
         TextBox log_name = new TextBox();
         PasswordBox log_pass = new PasswordBox();
-        Button login_press = new Button { Content = "login" };
+        Button login_press = new Button { Content = "login", Margin = new Thickness(0, 25, 0, 0) };
         Button logout_press = new Button { Content = "logout", Margin = new Thickness(0, 0, 0, 35) };
         TextBlock login_response = new TextBlock();
 
@@ -56,8 +56,8 @@ namespace RecipeWPFApp
             accountpage.Children.Add(new TextBlock { Text = "Password", Foreground = Brushes.DarkGray, Margin = new Thickness(5, 0, 0, 0), FontSize = 17 });
             accountpage.Children.Add(log_pass);
 
+            login_press.Click += getUser;
             accountpage.Children.Add(login_press);
-            login_press.MouseLeftButtonDown += new MouseButtonEventHandler(getUser);
             accountpage.Children.Add(login_response);
         }
 
@@ -69,8 +69,8 @@ namespace RecipeWPFApp
             accountpage.Children.Add(new Rectangle { Margin = new Thickness(0, 0, 0, 20), Height = 1, Fill = Brushes.LightGray });
             accountpage.Children.Add(new TextBlock { Text = "Username: " + Global.username });
             accountpage.Children.Add(new TextBlock { Text = "Account type: " + Global.admin.ToString() });
+            logout_press.Click += logout;
             accountpage.Children.Add(logout_press);
-            logout_press.MouseLeftButtonDown += new MouseButtonEventHandler(logout);
             accountpage.Children.Add(new TextBlock { Text = "Your bookmarks", Foreground = Brushes.IndianRed, FontSize = 20, FontWeight = FontWeights.Bold, HorizontalAlignment = HorizontalAlignment.Center });
             var bookmarkline = new Rectangle { Margin = new Thickness(0, 0, 0, 10), Height = 1, Fill = Brushes.LightGray };
             accountpage.Children.Add(bookmarkline);
@@ -107,8 +107,8 @@ namespace RecipeWPFApp
             {
                 foreach (var recipe in list_bookmarks)
                 {
-                    var button = new Button { Uid = recipe.ID, Content = recipe.Title, Margin = new Thickness(20, 20, 0, 0), Background = Brushes.IndianRed, Foreground = Brushes.White, FontStyle = FontStyles.Italic };
-                    button.MouseLeftButtonDown += new MouseButtonEventHandler(bookmark_MouseLeftButtonDown);
+                    var button = new Button { Uid = recipe.ID, Content = recipe.Title, Margin = new Thickness(20, 0, 20, 0), Background = Brushes.IndianRed, Foreground = Brushes.White, FontStyle = FontStyles.Italic };
+                    button.Click += bookmark_MouseLeftButtonDown;
                     accountpage.Children.Add(button);
                 }
             }
@@ -118,16 +118,16 @@ namespace RecipeWPFApp
             }
         }
 
-        private async void bookmark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private async void bookmark_MouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
-            var recipeObject = (Image)sender;
+            var recipeObject = (Button)sender;
             var response = await getData(recipeObject.Uid);
             var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
             this.NavigationService.Navigate(new MainRecipePage(records[0]));
         }
 
         //Validate login attempt
-        private async void getUser(object sender, MouseButtonEventArgs e)
+        private async void getUser(object sender, RoutedEventArgs e)
         {
             var client = new HttpClient();
             var data = await client.GetStringAsync("http://145.24.222.221/login.php?user=" + log_name.Text + "&pass=" + log_pass.Password);
@@ -152,12 +152,12 @@ namespace RecipeWPFApp
                 login_response.Foreground = Brushes.Green;
                 login_response.Text = "Succesfull login!";
 
-                InitializeComponent();
+                this.NavigationService.Content = new AccountPage();
                 //new NavigationPage(CreateWindow.Create(3));
             }
         }
 
-        private void logout(object sender, MouseButtonEventArgs e)
+        private void logout(object sender, RoutedEventArgs e)
         {
             // set status to logged out 
             Global.status = "logged_out";
