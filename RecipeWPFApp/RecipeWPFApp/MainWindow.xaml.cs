@@ -23,7 +23,7 @@ namespace RecipeWPFApp
         {
             InitializeComponent();
 
-            Main.Navigate(new MainPage());
+            Main.Navigate(CreateWindow.Create(1));
         }
 
         private void Main_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
@@ -40,7 +40,7 @@ namespace RecipeWPFApp
 
         private void Home_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Main.Navigate(new MainPage());
+            Main.Navigate(CreateWindow.Create(1));
             while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();
@@ -49,7 +49,7 @@ namespace RecipeWPFApp
 
         private void Browse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Main.Navigate(new BrowsePage());
+            Main.Navigate(CreateWindow.Create(2));
             while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();
@@ -58,7 +58,7 @@ namespace RecipeWPFApp
 
         private void Account_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Main.Navigate(new AccountPage());
+            Main.Navigate(CreateWindow.Create(3));
             while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();
@@ -67,7 +67,7 @@ namespace RecipeWPFApp
 
         private void Register_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Main.Navigate(new RegisterPage());
+            Main.Navigate(CreateWindow.Create(4));
             while (Main.CanGoBack)
             {
                 Main.RemoveBackEntry();

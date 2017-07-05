@@ -48,7 +48,7 @@ namespace RecipeWPFApp
         private async Task<String> getData()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://145.24.222.221/recipe.php?id=10");
+            var response = await client.GetStringAsync("http://145.24.222.221/recipe.php?id=23");
             return response;
         }
     }

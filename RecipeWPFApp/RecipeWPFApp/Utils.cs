@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace RecipeWPFApp
 {
-    /*public class CreateWindow
+    public class CreateWindow
     {
-        public static ContentPage Create(int option)
+        public static Page Create(int option)
         {
             switch (option)
             {
@@ -25,7 +26,7 @@ namespace RecipeWPFApp
                     return new MainPage();
             }
         }
-    }*/
+    }
 
     public interface Option<T>
     {
