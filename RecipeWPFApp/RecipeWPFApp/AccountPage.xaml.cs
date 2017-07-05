@@ -152,7 +152,7 @@ namespace RecipeWPFApp
                 login_response.Foreground = Brushes.Green;
                 login_response.Text = "Succesfull login!";
 
-                this.NavigationService.Content = new AccountPage();
+                this.NavigationService.Navigate(new AccountPage());
                 //new NavigationPage(CreateWindow.Create(3));
             }
         }

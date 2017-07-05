@@ -23,11 +23,41 @@ namespace RecipeWPFApp
     /// </summary>
     public partial class MainRecipePage : Page
     {
+        public Recipe recipe;
+
         public MainRecipePage(Recipe recipe)
         {
+            this.recipe = recipe;
             InitializeRecipes(recipe);
             InitializeComponent();
-            InitializeText(recipe);
+
+            recipeName.Text = recipe.Title;
+            recipeImage.Source = ToBitmapImage(recipe.Imagelink);
+            recipeInstructions.Text = recipe.Bereidingswijze;
+
+            var ingredientList = recipe.Ingredienten.Split(',').ToList();
+            for (int x = 0; x < ingredientList.Count; x++)
+            {
+                if (ingredientList[x][0] == ' ')
+                {
+                    ingredientList[x] = ingredientList[x].Substring(1);
+                }
+                recipeIngredients.Children.Add(new TextBlock { Text = ingredientList[x], FontSize = 15 });
+            }
+
+            // Bookmarkbutton if a user is logged in
+            bookmark_button.Click += add_bookmark; //set click action
+
+            if (Global.status == "logged_out")
+            {
+                recipe_page.Children.Remove(bookmark_button);
+            }
+
+            // Change button depending on if recipe is bookmarked or not 
+            IfBookmarked();
+
+            // set command of rate button 
+            init_rate_form();
         }
 
         public static float Chance(Recipe current, Recipe recipe)
@@ -122,7 +152,7 @@ namespace RecipeWPFApp
             var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
 
             List<Recipe> recipes = new List<Recipe>();
-            foreach(var recipe in records)
+            foreach (var recipe in records)
             {
                 recipes.Add(recipe);
             }
@@ -174,29 +204,161 @@ namespace RecipeWPFApp
             }
         }
 
-        private void InitializeText(Recipe recipe)
-        {
-            recipeName.Text = recipe.Title;
-            recipeImage.Source = ToBitmapImage(recipe.Imagelink);
-            recipeInstructions.Text = recipe.Bereidingswijze;
-
-            var ingredientList = recipe.Ingredienten.Split(',').ToList();
-            for (int x = 0; x < ingredientList.Count; x++)
-            {
-                if (ingredientList[x][0] == ' ')
-                {
-                    ingredientList[x] = ingredientList[x].Substring(1);
-                }
-                recipeIngredients.Children.Add(new TextBlock { Text = ingredientList[x], FontSize = 15 });
-            }
-        }
-
         private async void recipe_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var recipeObject = (Image)sender;
             var response = await getData(recipeObject.Uid);
             var records = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
             this.NavigationService.Navigate(new MainRecipePage(records[0]));
+        }
+
+        private async void add_bookmark(object sender, RoutedEventArgs e)
+        {
+            //Generate list with ids of all bookmarks
+            HttpClient client = new HttpClient();
+            var bookmark_id_list = await Bookmark_check();
+
+            if (bookmark_id_list.Contains(recipe.ID) == false)
+            {
+                // if recipe not bookmarked yet Add to bookmark 
+                var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&add=" + recipe.ID);
+                bookmark_button.Content = "Remove Bookmark";
+                bookmark_button.Background = (Brush)new BrushConverter().ConvertFrom("#9E3636");
+            }
+            else
+            {
+                // Remove bookmark and add bookmark button
+                var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username + "&remove=" + recipe.ID);
+                bookmark_button.Content = "Bookmark this Recipe";
+                bookmark_button.Background = (Brush)new BrushConverter().ConvertFrom("#e04021");
+            }
+        }
+
+        private async Task<System.Collections.Generic.List<string>> Bookmark_check()
+        {
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/bookmark.php?user=" + Global.username);
+            var bookmark_list = JsonConvert.DeserializeObject<System.Collections.Generic.List<BookmarkItem>>(response);
+            var bookmark_id_list = new System.Collections.Generic.List<string>();
+            foreach (var bookmark in bookmark_list) { bookmark_id_list.Add(bookmark.recept); }
+            return bookmark_id_list;
+        }
+
+        private async void IfBookmarked()
+        {
+            var bookmark_id_list = await Bookmark_check();
+            if (bookmark_id_list.Contains(recipe.ID))
+            {
+                //if recipe laready bookmarked
+                bookmark_button.Content = "Remove Bookmark";
+                bookmark_button.Background = (Brush)new BrushConverter().ConvertFrom("#9E3636");
+            }
+        }
+
+        private async void insert_rating(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt16(rate_form_rating.Text) <= 10 && Convert.ToInt16(rate_form_rating.Text) > 0)
+                {
+                    var client = new HttpClient();
+                    var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username + "&add=" + recipe.ID + "&val=" + rate_form_rating.Text);
+                    this.init_rate_form();
+                }
+                else
+                {
+                    rate_form_resultlabel.Text = "Invalid Rating";
+
+                }
+            }
+            catch { MessageBox.Show("Error", "Wrong input most likely"); }
+        }
+
+
+        private async void remove_rating(object sender, RoutedEventArgs e)
+        {
+            var client = new HttpClient();
+            var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username + "&remove=" + recipe.ID + "&val=" + rate_form_rating.Text);
+            this.rate_form_button.Content = "Rate";
+            this.init_rate_form();
+        }
+
+        private async void init_rate_form()
+        {
+            string totalrate;
+            var client = new HttpClient();
+
+            var average = await client.GetStringAsync("http://145.24.222.221/rate.php?recipe=" + recipe.ID);
+            var averagejson = JsonConvert.DeserializeObject<System.Collections.Generic.List<Average>>(average);
+
+
+            if (Global.status == "logged_in")
+            {
+                var userrating = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username);
+                var userratinglist = JsonConvert.DeserializeObject<System.Collections.Generic.List<UserRating>>(userrating);
+
+                if (userratinglist.Count > 0)
+                {
+                    bool Isset = false;
+                    foreach (UserRating ur in userratinglist)
+                    {
+                        if (ur.recept == recipe.ID)
+                        {
+                            Isset = true;
+                            rate_form_rating.IsEnabled = false;
+                            rate_form_rating.Text = ur.beoordeling;
+                            if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+                            rate_form_resultlabel.Text = "Average Score: " + totalrate;
+                            rate_form_button.Content = "Remove Rating";
+                            rate_form_button.Click += remove_rating;
+                            break;
+                        }
+                    }
+                    if (!Isset)
+                    {
+                        rate_form_rating.IsEnabled = true;
+                        rate_form_rating.Text = "";
+                        rate_form_button.Click += insert_rating;
+                        if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+                        rate_form_resultlabel.Text = "Average Score: " + totalrate;
+                    }
+                }
+                else
+                {
+                    rate_form_rating.IsEnabled = true;
+                    rate_form_rating.Text = "";
+                    rate_form_button.Click += insert_rating;
+                    if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+                    rate_form_resultlabel.Text = "Average Score: " + totalrate;
+                }
+            }
+            else
+            {
+
+                rate_form_rating.IsEnabled = false;
+                rate_form_rating.Text = "Log in to rate";
+                rate_form_button.Click += errorDisplay;
+                if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+                rate_form_resultlabel.Text = "Average Score: " + totalrate;
+            }
+        }
+
+        private void keyboard(object sender, TextCompositionEventArgs e)
+        {
+            int x;
+
+            if (!Int32.TryParse(e.Text, out x))
+            {
+                if (e.Text != "," || rate_form_rating.Text.Contains(","))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void errorDisplay(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Error", "You're not logged in yet");
         }
 
         private async Task<String> getData()

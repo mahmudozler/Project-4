@@ -76,7 +76,7 @@ namespace RecipeWPFApp
                     register_page.Children.Clear();
                     var to_login_text = new TextBlock { Text = "Congratulations! To login with your new account press the button below.", Foreground = Brushes.DarkGray };
                     var to_login = new Button { Content = "login" };
-                    this.NavigationService.Content = new AccountPage();
+                    this.NavigationService.Navigate(new AccountPage());
                     register_page.Children.Add(to_login_text);
                     register_page.Children.Add(to_login);
                 }
