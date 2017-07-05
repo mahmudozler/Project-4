@@ -2,6 +2,7 @@
 namespace RecipeApp
 {
 	public static class Global
+        //Data which is available without instantiation
 	{
 		public static string status = "logged_out";
 		public static string username { get; set; }

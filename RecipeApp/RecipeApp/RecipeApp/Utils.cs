@@ -6,6 +6,7 @@ using Xamarin.Forms;
 namespace RecipeApp
 {
     public class CreateWindow
+        //instantiation logic is defined here (Factory design pattern)
     {
         public static ContentPage Create(int option)
         {
@@ -26,6 +27,7 @@ namespace RecipeApp
     }
 
 	public interface Option<T>
+        //Option interface which defines the signature for the visit method (part of visitor pattern)
 	{
 		U Visit<U>(Func<T, U> OnSome, Func<U> OnNone);
 		void Visit(Action<T> OnSome, Action OnNone);
@@ -34,6 +36,7 @@ namespace RecipeApp
 
 
     public interface Iterator<T> : System.Collections.Generic.IList<T>
+        //Iterator interface which is part of the Iterator design pattern. Implements List<T> interface
 	{
 		Option<T> GetNext();
 		void Reset();
@@ -41,6 +44,7 @@ namespace RecipeApp
 	}
 
 	public class Some<T> : Option<T>
+        // Some<T> is used to determine whether a List contains an item (part of visitor pattern)
 	{
 		private T Value;
 
@@ -61,6 +65,7 @@ namespace RecipeApp
 	}
 
 	public class None<T> : Option<T>
+        //None<T> is used to determine whether a List contains no items (part of visitor pattern)
 	{
 		public U Visit<U>(Func<T, U> OnSome, Func<U> OnNone)
 		{
@@ -74,6 +79,7 @@ namespace RecipeApp
 	}
 
     public class List<T> : Iterator<T>
+        // custom list which implements Iterator (part of Iterator pattern)
 	{
         private System.Collections.Generic.List<T> Elements = new System.Collections.Generic.List<T>();
 		public int Current = -1;
@@ -156,6 +162,7 @@ namespace RecipeApp
     }
 
     public class Recipe
+        //recipe class contains all data of one recipe
     {
 		public string ID { get; set; }
 		public string Title { get; set; }
@@ -169,6 +176,7 @@ namespace RecipeApp
     }
 
 	public class User
+        //user class contains all data of one user
 	{
 		public string username { get; set; }
 		public string password { get; set; }
@@ -176,20 +184,24 @@ namespace RecipeApp
 	}
 
 	public class RegisterResponse
+        //RegisterResponse class is used to determine whether an account registration was successfull
 	{
 		public bool status { get; set; }
 	}
 
 	public class BookmarkItem
+        //Contains a bookmark made by an user
 	{
 		public string username { get; set; }
         public string recept { get; set; }
 	}
 	public class Average
+        //Contains average rating of a recipe
 	{
 		public string beoordeling { get; set; }
 	}
 	public class UserRating
+        //Contains rating of an user on a recipe
 	{
 		public string beoordeling { get; set; }
         public string recept { get; set; }

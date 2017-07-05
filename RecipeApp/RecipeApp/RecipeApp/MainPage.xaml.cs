@@ -17,6 +17,7 @@ namespace RecipeApp
         }
 
         private async void MainRecipe_Tapped(object sender, EventArgs e)
+            //display main recipe
         {
             var response = await getData();
             var featured_item = JsonConvert.DeserializeObject<System.Collections.Generic.List<Recipe>>(response);
@@ -24,13 +25,14 @@ namespace RecipeApp
         }
 
 		private async void Category_Tapped(object sender, EventArgs e)
+            //display all items in selected category
 		{
             var CategoryObject = (Image)sender;
-            //main_recip.Text = test.ClassId;
             await Navigation.PushAsync(new CategoryPage(CategoryObject.ClassId));
 		}
 
 		public async Task<String> getData()
+            //send request to server
 		{
 			HttpClient client = new HttpClient();
 			var response = await client.GetStringAsync("http://145.24.222.221/recipe.php?id=23");

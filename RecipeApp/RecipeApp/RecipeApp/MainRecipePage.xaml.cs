@@ -248,7 +248,9 @@ namespace RecipeApp
             Navigation.PushAsync(new MainRecipePage(recipe));
         }
 
-        private async void insert_rating() {
+        private async void insert_rating()
+            //check for boundaries and insert rating
+        {
             try
             {
 				if(Convert.ToInt16(rate_form_rating.Text) <= 10 && Convert.ToInt16(rate_form_rating.Text) > 0)
@@ -259,7 +261,7 @@ namespace RecipeApp
 				}
 				else
 				{
-					rate_form_resultlabel.Text = "Invalid Rating";
+                    await DisplayAlert("Error", "Wrong input most likely", "Cancel");
 					
 				}     
             }
@@ -268,6 +270,7 @@ namespace RecipeApp
 
 
 		private async void remove_rating()
+            //remove rating from database
 		{
 			var client = new HttpClient();
             var response = await client.GetStringAsync("http://145.24.222.221/rate.php?user=" + Global.username + "&remove=" + recipe.ID + "&val=" + rate_form_rating.Text);
@@ -276,6 +279,7 @@ namespace RecipeApp
 		}
 
         private async void init_rate_form()
+            //initialize rating form (checks whether account is logged in and whether user has already rated)
         {
             string totalrate;
             var client = new HttpClient();

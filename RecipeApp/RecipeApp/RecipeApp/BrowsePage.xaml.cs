@@ -17,12 +17,14 @@ namespace RecipeApp
         List<Recipe> recipes = new List<Recipe>();
 
         public BrowsePage()
+        //Initializes ContentPage
         {
             InitializeComponent();
             this.CategoryPicker.SelectedIndex = 0;
         }
 
         private async void Search(object sender, EventArgs e)
+        // Search for recipes in the database and display using the Iterator design pattern
         {
             grid.Children.Clear();
 
@@ -33,7 +35,7 @@ namespace RecipeApp
             string category = this.CategoryPicker.Items[this.CategoryPicker.SelectedIndex];
             string inputstring = "input=";
 
-
+            //Build the input string which is send to the database
             if(text.Contains(" "))
             {
                 string[] tempstr = text.Split(' ');
@@ -66,9 +68,12 @@ namespace RecipeApp
 				}
             }
 
+            //send request using the input string
             var response = await getData(inputstring);
             List<Recipe> records = JsonConvert.DeserializeObject<List<Recipe>>(response);
 
+
+            //display data using the iterator (and visitor) pattern
             while (records.GetNext().Visit(item => true, () => false))
             {
 				var image = new Image
@@ -98,6 +103,7 @@ namespace RecipeApp
         }
 
         public class Image : Xamarin.Forms.Image
+         //(Use of adapter design pattern) add index number to class in order to display the correct recipe from the list
         {
             public int index { get; set; } = 0;
 
@@ -107,8 +113,9 @@ namespace RecipeApp
         }
 
         public class BoxView : Xamarin.Forms.BoxView
-		{
-			public int index { get; set; } = 0;
+        //(Use of adapter design pattern) add index number to class in order to display the correct recipe from the list
+        {
+            public int index { get; set; } = 0;
 
             public BoxView() : base()
 			{ }
@@ -117,6 +124,7 @@ namespace RecipeApp
 
 
         private async Task<String> getData(string str)
+            //send request to server
         {
             HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("http://145.24.222.221/search.php?" + str);
