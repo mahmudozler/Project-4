@@ -52,7 +52,7 @@ namespace RecipeWPFApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/RecipeWPFApp;component/mainpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pocket Recipes;component/mainpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\MainPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -18,8 +18,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="1"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="1.4*"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock MouseLeftButtonDown="Home_MouseLeftButtonDown" Grid.Column="0" Text="HOME" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
@@ -29,7 +29,7 @@
                 <TextBlock MouseLeftButtonDown="Account_MouseLeftButtonDown" Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="5" Fill="Pink" Margin="0, 5"/>
                 <TextBlock MouseLeftButtonDown="Register_MouseLeftButtonDown" Grid.Column="6" Text="REGISTER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
-                <TextBlock Grid.Column="8" Text="FOOD PORN" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock Grid.Column="8" Text="POCKET RECIPES" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
             </Grid>
 
             <TextBlock Name="backButton" MouseLeftButtonDown="Back_MouseLeftButtonDown" Visibility="Collapsed" Text="BACK" FontSize="20" FontWeight="Bold" Foreground="White" Background="Red" TextAlignment="Right"/>
