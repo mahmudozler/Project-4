@@ -177,7 +177,7 @@ namespace RecipeWPFApp
 
     public class RegisterResponse
     {
-        public bool response { get; set; }
+        public bool status { get; set; }
     }
 
     public class BookmarkItem
