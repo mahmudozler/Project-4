@@ -52,13 +52,11 @@ namespace RecipeApp
             if (PasswordInput1.Text == PasswordInput2.Text)
             {
                 //check if user is in db
-                var user_search = await client.GetStringAsync("http://145.24.222.221/login.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
+                var user_search = await client.GetStringAsync("http://145.24.222.221/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
                 var search_result = JsonConvert.DeserializeObject<System.Collections.Generic.List<RegisterResponse>>(user_search);
-                if (search_result.Count == 0)
+                if (search_result[0].status)
                 { //if chosen name not in db already, register new account
-                    await client.GetAsync("http://145.24.222.221/register.php?user=" + EntryInput.Text + "&pass=" + PasswordInput2.Text);
 
-                    // Action after succesfull registration
                     await register_form.FadeTo(0, 1000);
                     register_page.Children.Clear();
                     var to_login_text = new Label { Text = "Congratulations! To login with your new account press the button below.", TextColor = Color.FromHex("#2b2b2b") };
