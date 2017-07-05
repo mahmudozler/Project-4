@@ -9,7 +9,7 @@
       Title="Account">
 
     <Border Padding="200, 0">
-        <StackPanel>
+        <StackPanel Name="accountpage">
             <TextBlock Text="Account" FontSize="25" FontWeight="ExtraBold" Foreground="Red" TextAlignment="Center"/>
 
             <Rectangle Height="1" Fill="Pink" Margin="50, 10"/>

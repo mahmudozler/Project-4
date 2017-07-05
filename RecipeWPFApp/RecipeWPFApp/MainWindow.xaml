@@ -27,7 +27,7 @@
                 <TextBlock MouseLeftButtonDown="Browse_MouseLeftButtonDown" Grid.Column="2" Text="BROWSE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
                 <TextBlock MouseLeftButtonDown="Account_MouseLeftButtonDown" Grid.Column="4" Text="ACCOUNT" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
-                <Rectangle Grid.Column="3" Fill="Pink" Margin="0, 5"/>
+                <Rectangle Grid.Column="5" Fill="Pink" Margin="0, 5"/>
                 <TextBlock MouseLeftButtonDown="Register_MouseLeftButtonDown" Grid.Column="6" Text="REGISTER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
                 <TextBlock Grid.Column="8" Text="FOOD PORN" FontSize="30" FontWeight="ExtraBold" Foreground="White" TextAlignment="Center"/>
             </Grid>

@@ -167,4 +167,32 @@ namespace RecipeWPFApp
         public string Imagelink { get; set; }
         public object Valid { get; set; }
     }
+
+    public class User
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string admin { get; set; }
+    }
+
+    public class RegisterResponse
+    {
+        public bool response { get; set; }
+    }
+
+    public class BookmarkItem
+    {
+        public string username { get; set; }
+        public string recept { get; set; }
+    }
+    public class Average
+    {
+        public string beoordeling { get; set; }
+    }
+    public class UserRating
+    {
+        public string beoordeling { get; set; }
+        public string recept { get; set; }
+        public string username { get; set; }
+    }
 }
