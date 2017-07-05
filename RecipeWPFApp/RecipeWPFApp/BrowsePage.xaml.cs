@@ -38,6 +38,7 @@ namespace RecipeWPFApp
         }
 
         private async void search_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        // Search for recipes in the database and display items
         {
 
             grid.Children.Clear();
@@ -57,6 +58,7 @@ namespace RecipeWPFApp
             string category = categoryPicker.Text;
             string inputString = "input=";
 
+            //Build the input string which is send to the database
             if (searchText.Contains(" "))
             {
                 string[] tempStr = searchText.Split(' ');
@@ -88,7 +90,7 @@ namespace RecipeWPFApp
                     inputString += searchText + "&category=" + category;
                 }
             }
-
+            //send request using the input string
             var response = await getData(inputString);
             var records = JsonConvert.DeserializeObject<List<Recipe>>(response);
             var counter = 0;

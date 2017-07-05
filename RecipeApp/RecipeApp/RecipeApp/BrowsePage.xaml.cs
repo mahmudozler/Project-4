@@ -24,7 +24,7 @@ namespace RecipeApp
         }
 
         private async void Search(object sender, EventArgs e)
-        // Search for recipes in the database and display using the Iterator design pattern
+        // Search for recipes in the database and display using the Iterator and visitor design pattern
         {
             grid.Children.Clear();
 

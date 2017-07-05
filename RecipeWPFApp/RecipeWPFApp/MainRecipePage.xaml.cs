@@ -267,11 +267,10 @@ namespace RecipeWPFApp
                 }
                 else
                 {
-                    rate_form_resultlabel.Text = "Invalid Rating";
-
+                    MessageBox.Show("Wrong input most likely", "Error");
                 }
             }
-            catch { MessageBox.Show("Error", "Wrong input most likely"); }
+            catch { MessageBox.Show("Wrong input most likely", "Error"); }
         }
 
 
