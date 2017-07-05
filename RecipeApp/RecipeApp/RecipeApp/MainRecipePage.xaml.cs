@@ -277,6 +277,7 @@ namespace RecipeApp
 
         private async void init_rate_form()
         {
+            string totalrate;
             var client = new HttpClient();
 
 			var average = await client.GetStringAsync("http://145.24.222.221/rate.php?recipe=" + recipe.ID);
@@ -297,8 +298,9 @@ namespace RecipeApp
 						{
                             Isset = true;
 							rate_form_rating.IsEnabled = false;
-							rate_form_rating.Text = "You already rated";
-							rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: " + ur.beoordeling;
+                            rate_form_rating.Text = ur.beoordeling;
+							if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+							rate_form_resultlabel.Text = "Average Score: " + totalrate;
 							rate_form_button.Text = "Remove Rating";
 							rate_form_button.Command = new Command(() => {remove_rating(); });
 							break;
@@ -307,17 +309,21 @@ namespace RecipeApp
                     if(!Isset)
                     {
 						rate_form_rating.IsEnabled = true;
-						rate_form_rating.Text = "Fill in a score between 1-10";
+                        rate_form_rating.Text = "";
+                        rate_form_rating.Placeholder = "Score 1-10";
 						rate_form_button.Command = new Command(() => { insert_rating(); });
-						rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";                  
+						if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+						rate_form_resultlabel.Text = "Average Score: " + totalrate;               
                     }
                 }
 				else
 				{
 					rate_form_rating.IsEnabled = true;
-					rate_form_rating.Text = "Fill in a score between 1-10";
+                    rate_form_rating.Text = "";
+                    rate_form_rating.Placeholder = "Score 1-10";
 					rate_form_button.Command = new Command(() => { insert_rating(); });
-					rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: not yet rated";
+					if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+					rate_form_resultlabel.Text = "Average Score: " + totalrate;
 				}
             }
             else
@@ -326,7 +332,8 @@ namespace RecipeApp
                 rate_form_rating.IsEnabled = false;
                 rate_form_rating.Text = "Log in to rate";
                 rate_form_button.Command = new Command(async () => {await DisplayAlert("Error","You're not logged in yet", "Cancel");});
-				rate_form_resultlabel.Text = "Average: " + averagejson[0].beoordeling + "\nYour Rating: log in to rate";
+                if (averagejson[0].beoordeling != null) { totalrate = averagejson[0].beoordeling.Substring(0, 4); } else { totalrate = "N/R"; };
+                rate_form_resultlabel.Text = "Average Score: " + totalrate;
             }
         }
 

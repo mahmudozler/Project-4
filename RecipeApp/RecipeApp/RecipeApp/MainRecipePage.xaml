@@ -25,10 +25,14 @@
                 <Button x:Name="bookmark_button" Text="Bookmark this Recipe" BackgroundColor="#e04021" TextColor="#fff"/>
 
                 <StackLayout x:Name="rate_form">
-                    <Label x:Name="rate_form_title" Text="Rate this recipe" TextColor="Red" FontAttributes="Bold"/>
-                    <Entry x:Name="rate_form_rating" Keyboard="Numeric" Placeholder="Fill in a score between 1-10" WidthRequest="100"/>
-                    <Button x:Name="rate_form_button" Text="Rate"/>
-                    <Label x:Name="rate_form_resultlabel"/>
+                    <Label x:Name="rate_form_title" Text="Rate this recipe" TextColor="Red" FontAttributes="Bold" FontSize="20" Margin="0,15,0,0"/>
+                    <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="rate_form_rating" Keyboard="Numeric" Placeholder="Score between 1-10" WidthRequest="150" HorizontalTextAlignment="Center"/>
+                    <Button x:Name="rate_form_button" Text="Rate" WidthRequest="150"/>
+                    </StackLayout>
+                    <Frame OutlineColor="Black" Padding="0,10" Margin="40,15" BackgroundColor="#eee">
+                    <Label x:Name="rate_form_resultlabel" HorizontalTextAlignment="Center" FontSize="18"/>
+                    </Frame>
                 </StackLayout>
                 
                 <Label Text="RECOMMENDED" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="0,30,0,0"/>
