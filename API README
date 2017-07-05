@@ -21,3 +21,9 @@ examples down below.
 145.24.222.221/rate.php?user=user&remove=20 	    //removes rating of recipe number 20
 145.24.222.221/rate.php?user=user 		        //returns ratings of specific user
 145.24.222.221/rate.php?recipe=5 		        //returns average rating of recipe
+
+
+//---------NOTE: CHANGES IN DATABASE MAY EFFECT APP ---------------//
+
+145.24.222.221/phpmyadmin/sql.php           // (username = root), (password = password)
+
